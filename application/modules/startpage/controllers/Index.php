@@ -6,6 +6,8 @@
 
 namespace Modules\Startpage\Controllers;
 
+use Modules\Startpage\Mappers\Startpage as StartpageMapper;
+
 class Index extends \Ilch\Controller\Frontend
 {
     public function init()
@@ -14,5 +16,8 @@ class Index extends \Ilch\Controller\Frontend
 
     public function indexAction()
     {
+      $startpageMapper = new StartpageMapper();
+      $startpage = $startpageMapper->getStartpage();
+      $this->getView()->set('startpage', $startpage);
     }
 }

@@ -32,7 +32,7 @@ class Startpage extends \Ilch\Mapper
           $startpageModel = new StartpageModel();
           $startpageModel->setId($startpageRow['id']);
           $startpageModel->setGrid($startpageRow['grid']);
-          $startpageModel->setBackgroundSelection($startpageRow['background-selection']);
+          $startpageModel->setBackgroundSelection($startpageRow['background_selection']);
           $startpageModel->setBackground($startpageRow['background']);
           $startpageModel->setImage($startpageRow['image']);
           $startpageModel->setColor($startpageRow['color']);

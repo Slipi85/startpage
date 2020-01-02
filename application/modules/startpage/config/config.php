@@ -43,7 +43,7 @@ class Config extends \Ilch\Config\Install
       return	'CREATE TABLE IF NOT EXISTS `[prefix]_startpage` (
       				`id` INT(11) NOT NULL AUTO_INCREMENT,
       				`grid` MEDIUMTEXT NOT NULL,
-              `background-selection` MEDIUMTEXT NOT NULL,
+              `background_selection` MEDIUMTEXT NOT NULL,
       				`background` VARCHAR(255) NOT NULL,
               `image` VARCHAR(255) NOT NULL,
               `color` VARCHAR(255) NOT NULL,
