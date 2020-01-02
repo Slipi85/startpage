@@ -180,7 +180,7 @@ class Startpage extends \Ilch\Model
    */
   public function setBackgroundSelection($backgroundselection)
   {
-      $this->backgroundselection = (int)$backgroundselection;
+      $this->backgroundselection = (string)$backgroundselection;
 
       return $this;
   }
@@ -204,7 +204,7 @@ class Startpage extends \Ilch\Model
    */
   public function setBackground($background)
   {
-      $this->background = (int)$background;
+      $this->background = (string)$background;
 
       return $this;
   }
@@ -227,7 +227,7 @@ class Startpage extends \Ilch\Model
    */
   public function setImage($image)
   {
-      $this->image = (int)$image;
+      $this->image = (string)$image;
 
       return $this;
   }
@@ -250,7 +250,7 @@ class Startpage extends \Ilch\Model
    */
   public function setColor($color)
   {
-      $this->color = (int)$color;
+      $this->color = (string)$color;
 
       return $this;
   }
@@ -273,7 +273,7 @@ class Startpage extends \Ilch\Model
    */
   public function setHeading($heading)
   {
-      $this->heading = (int)$heading;
+      $this->heading = (string)$heading;
 
       return $this;
   }
@@ -296,7 +296,7 @@ class Startpage extends \Ilch\Model
    */
   public function setClass($class)
   {
-      $this->class = (int)$class;
+      $this->class = (string)$class;
 
       return $this;
   }
@@ -319,7 +319,7 @@ class Startpage extends \Ilch\Model
    */
   public function setGrid1($grid1)
   {
-      $this->grid1 = (int)$grid1;
+      $this->grid1 = (string)$grid1;
 
       return $this;
   }
@@ -342,7 +342,7 @@ class Startpage extends \Ilch\Model
    */
   public function setGrid2($grid2)
   {
-      $this->grid2 = (int)$grid2;
+      $this->grid2 = (string)$grid2;
 
       return $this;
   }
@@ -365,7 +365,7 @@ class Startpage extends \Ilch\Model
    */
   public function setGrid3($grid3)
   {
-      $this->grid3 = (int)$grid3;
+      $this->grid3 = (string)$grid3;
 
       return $this;
   }
@@ -388,7 +388,7 @@ class Startpage extends \Ilch\Model
    */
   public function setGrid4($grid4)
   {
-      $this->grid4 = (int)$grid4;
+      $this->grid4 = (string)$grid4;
 
       return $this;
   }
@@ -411,7 +411,7 @@ class Startpage extends \Ilch\Model
    */
   public function setBackgroundGrid($backgroundgrid)
   {
-      $this->backgroundgrid = (int)$backgroundgrid;
+      $this->backgroundgrid = (string)$backgroundgrid;
 
       return $this;
   }
@@ -434,7 +434,7 @@ class Startpage extends \Ilch\Model
    */
   public function setColorGrid($colorgrid)
   {
-      $this->colorgrid = (int)$colorgrid;
+      $this->colorgrid = (string)$colorgrid;
 
       return $this;
   }

@@ -8,7 +8,7 @@ return [
     'menuStartpage' => 'Startseite',
     'noSection' => 'Keine Sektion hinzugefühgt',
     'noSectionIndex' => '<h1>Keine Sektion hinzugefühgt</h1>
-    <p>Gehe in den Admincenter und unter Module/Startseite können Sektionen hinzugefühgtwerden</p>',
+    <p>Gehe in den Admincenter unter Module/Startseite können Sektionen hinzugefühgt werden</p>',
     'pleaseSelect' => 'bitte wählen sie',
     'areas' => 'Bereiche',
     'one' => '1 Bereich',

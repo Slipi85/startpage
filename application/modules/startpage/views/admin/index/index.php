@@ -9,6 +9,7 @@
                     <col class="icon_width">
                     <col class="icon_width">
                     <col class="col-lg-2">
+                    <col class="col-lg-2">
                     <col>
                 </colgroup>
                 <thead>
@@ -18,6 +19,7 @@
                         <th></th>
                         <th><?=$this->getTrans('header') ?></th>
                         <th><?=$this->getTrans('areas') ?></th>
+                        <th><?=$this->getTrans('class') ?></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,6 +30,7 @@
                             <td><?=$this->getDeleteIcon(['action' => 'delstartpage', 'id' => $startpage->getId()]) ?></td>
                             <td><?=$this->escape($startpage->getHeading()) ?></td>
                             <td><?=$this->escape($startpage->getGrid()) ?></td>
+                            <td><?=$this->escape($startpage->getClass()) ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
