@@ -176,14 +176,6 @@
           </div>
         </div>
     </div>
-    <div class="form-group">
-        <label for="preview" class="col-lg-2 control-label">
-            <?=$this->getTrans('preview') ?>:
-        </label>
-        <div class="col-lg-4">
-            <a id="preview" class="btn btn-default"><?=$this->getTrans('show') ?></a>
-        </div>
-    </div>
     <?php if (!empty($this->get('startpage'))) {
         echo $this->getSaveBar('updateButton');
     } else {
