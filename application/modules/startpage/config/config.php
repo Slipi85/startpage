@@ -45,7 +45,6 @@ class Config extends \Ilch\Config\Install
       				`grid` MEDIUMTEXT NOT NULL,
               `background_selection` MEDIUMTEXT NOT NULL,
       				`background` VARCHAR(255) NOT NULL,
-              `image` VARCHAR(255) NOT NULL,
               `color` VARCHAR(255) NOT NULL,
               `heading` MEDIUMTEXT NOT NULL,
               `class` VARCHAR(255) NOT NULL,
