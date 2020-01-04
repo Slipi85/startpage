@@ -1,0 +1,36 @@
+.padding {
+  padding:50px 0px;
+}
+.ilch-box-2 {
+  padding:15px;
+  overflow: hidden;
+  width:50%;
+}
+.ilch-box-m {
+  display:flex;
+  align-items: stretch;
+}
+
+/*-- Heading Area --*/
+
+.section-heading {
+  font-size:28px;
+  text-align: center;
+  padding:10px;
+  text-transform: uppercase;
+}
+
+.start-heading  {
+  text-align: center;
+  padding:10px;
+  text-transform: uppercase;
+}
+
+.start-heading i {
+  font-size:32px;
+}
+
+.start-panel {
+  padding:10px 5px;
+  border-radius:5px;
+}

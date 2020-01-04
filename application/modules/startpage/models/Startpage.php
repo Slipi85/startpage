@@ -107,6 +107,34 @@ class Startpage extends \Ilch\Model
   protected $colorGrid;
 
   /**
+   * The Color-Grid of the startpage.
+   *
+   * @var string
+   */
+  protected $headinggrid1;
+
+  /**
+   * The Color-Grid of the startpage.
+   *
+   * @var string
+   */
+  protected $headinggrid2;
+
+  /**
+   * The Color-Grid of the startpage.
+   *
+   * @var string
+   */
+  protected $headinggrid3;
+
+  /**
+   * The Color-Grid of the startpage.
+   *
+   * @var string
+   */
+  protected $headinggrid4;
+
+  /**
    * The Function of the startpage.
    *
    * @var string
@@ -167,7 +195,7 @@ class Startpage extends \Ilch\Model
    * @param int
    * @return this
    */
-  public function getBackgroundSelection()
+  public function getBackgroundselection()
   {
       return $this->backgroundselection;
   }
@@ -178,9 +206,9 @@ class Startpage extends \Ilch\Model
    * @param int $backgroundselection
    * @return this
    */
-  public function setBackgroundSelection($backgroundselection)
+  public function setBackgroundselection($backgroundselection)
   {
-      $this->backgroundselection = (string)$backgroundselection;
+      $this->backgroundselection = (int)$backgroundselection;
 
       return $this;
   }
@@ -188,7 +216,7 @@ class Startpage extends \Ilch\Model
   /**
    * Gets the background of the startpage.
    *
-   * @param int
+   * @param string
    * @return this
    */
   public function getBackground()
@@ -199,7 +227,7 @@ class Startpage extends \Ilch\Model
   /**
    * Sets the background of the startpage.
    *
-   * @param int $background
+   * @param string $background
    * @return this
    */
   public function setBackground($background)
@@ -209,9 +237,9 @@ class Startpage extends \Ilch\Model
       return $this;
   }
   /**
-   * Gets the id of the startpage.
+   * Gets the image of the startpage.
    *
-   * @param int
+   * @param string
    * @return this
    */
   public function getImage()
@@ -220,9 +248,9 @@ class Startpage extends \Ilch\Model
   }
 
   /**
-   * Sets the id of the startpage.
+   * Sets the image of the startpage.
    *
-   * @param int $image
+   * @param string $image
    * @return this
    */
   public function setImage($image)
@@ -234,7 +262,7 @@ class Startpage extends \Ilch\Model
   /**
    * Gets the color of the startpage.
    *
-   * @param int $id
+   * @param string $color
    * @return this
    */
   public function getColor()
@@ -243,9 +271,9 @@ class Startpage extends \Ilch\Model
   }
 
   /**
-   * Sets the id of the startpage.
+   * Sets the color of the startpage.
    *
-   * @param int $color
+   * @param string $color
    * @return this
    */
   public function setColor($color)
@@ -257,7 +285,7 @@ class Startpage extends \Ilch\Model
   /**
    * Gets the heading of the startpage.
    *
-   * @param int $id
+   * @param string $id
    * @return this
    */
   public function getHeading()
@@ -268,7 +296,7 @@ class Startpage extends \Ilch\Model
   /**
    * Sets the heading of the startpage.
    *
-   * @param int $heading
+   * @param string $heading
    * @return this
    */
   public function setHeading($heading)
@@ -280,7 +308,7 @@ class Startpage extends \Ilch\Model
   /**
    * Gets the class of the startpage.
    *
-   * @param int
+   * @param string
    * @return this
    */
   public function getClass()
@@ -291,7 +319,7 @@ class Startpage extends \Ilch\Model
   /**
    * Sets the class of the startpage.
    *
-   * @param int $class
+   * @param string $class
    * @return this
    */
   public function setClass($class)
@@ -303,7 +331,7 @@ class Startpage extends \Ilch\Model
   /**
    * Gets the grid1 of the startpage.
    *
-   * @param int
+   * @param string
    * @return this
    */
   public function getGrid1()
@@ -314,7 +342,7 @@ class Startpage extends \Ilch\Model
   /**
    * Sets the grid1 of the startpage.
    *
-   * @param int $grid1
+   * @param string $grid1
    * @return this
    */
   public function setGrid1($grid1)
@@ -326,7 +354,7 @@ class Startpage extends \Ilch\Model
   /**
    * Gets the grid2 of the startpage.
    *
-   * @param int
+   * @param string
    * @return this
    */
   public function getGrid2()
@@ -337,7 +365,7 @@ class Startpage extends \Ilch\Model
   /**
    * Sets the grid2 of the startpage.
    *
-   * @param int $grid2
+   * @param string $grid2
    * @return this
    */
   public function setGrid2($grid2)
@@ -349,7 +377,7 @@ class Startpage extends \Ilch\Model
   /**
    * Gets the grid3 of the startpage.
    *
-   * @param int
+   * @param string
    * @return this
    */
   public function getGrid3()
@@ -360,7 +388,7 @@ class Startpage extends \Ilch\Model
   /**
    * Sets the grid3 of the startpage.
    *
-   * @param int $grid3
+   * @param string $grid3
    * @return this
    */
   public function setGrid3($grid3)
@@ -372,7 +400,7 @@ class Startpage extends \Ilch\Model
   /**
    * Gets the grid4 of the startpage.
    *
-   * @param int
+   * @param string
    * @return this
    */
   public function getGrid4()
@@ -383,7 +411,7 @@ class Startpage extends \Ilch\Model
   /**
    * Sets the grid4 of the startpage.
    *
-   * @param int $grid4
+   * @param string $grid4
    * @return this
    */
   public function setGrid4($grid4)
@@ -392,10 +420,11 @@ class Startpage extends \Ilch\Model
 
       return $this;
   }
+
   /**
    * Gets the background-grid of the startpage.
    *
-   * @param int
+   * @param string
    * @return this
    */
   public function getBackgroundGrid()
@@ -406,7 +435,7 @@ class Startpage extends \Ilch\Model
   /**
    * Sets the background-grid of the startpage.
    *
-   * @param int $backgroundgrid
+   * @param string $backgroundgrid
    * @return this
    */
   public function setBackgroundGrid($backgroundgrid)
@@ -415,10 +444,11 @@ class Startpage extends \Ilch\Model
 
       return $this;
   }
+
   /**
    * Gets the color-gird of the startpage.
    *
-   * @param int
+   * @param string
    * @return this
    */
   public function getColorGrid()
@@ -429,7 +459,7 @@ class Startpage extends \Ilch\Model
   /**
    * Sets the color-grid of the startpage.
    *
-   * @param int $colorgrid
+   * @param string $colorgrid
    * @return this
    */
   public function setColorGrid($colorgrid)
@@ -438,6 +468,103 @@ class Startpage extends \Ilch\Model
 
       return $this;
   }
+
+  /**
+   * Gets the Heading Grid1 of the startpage.
+   *
+   * @param string
+   * @return this
+   */
+  public function getHeadingGrid1()
+  {
+      return $this->headinggrid1;
+  }
+
+  /**
+   * Sets the Heading Grid1 of the startpage.
+   *
+   * @param string $headinggrid
+   * @return this
+   */
+  public function setHeadingGrid1($headinggrid1)
+  {
+      $this->headinggrid1 = (string)$headinggrid1;
+
+      return $this;
+  }
+
+  /**
+   * Gets the Heading Grid1 of the startpage.
+   *
+   * @param string
+   * @return this
+   */
+  public function getHeadingGrid2()
+  {
+      return $this->headinggrid2;
+  }
+
+  /**
+   * Sets the Heading Grid1 of the startpage.
+   *
+   * @param string $headinggrid2
+   * @return this
+   */
+  public function setHeadingGrid2($headinggrid2)
+  {
+      $this->headinggrid2 = (string)$headinggrid2;
+
+      return $this;
+  }
+
+  /**
+   * Gets the Heading Grid3 of the startpage.
+   *
+   * @param string
+   * @return this
+   */
+  public function getHeadingGrid3()
+  {
+      return $this->headinggrid3;
+  }
+
+  /**
+   * Sets the Heading Grid3 of the startpage.
+   *
+   * @param string $headinggrid3
+   * @return this
+   */
+  public function setHeadingGrid3($headinggrid3)
+  {
+      $this->headinggrid3 = (string)$headinggrid3;
+
+      return $this;
+  }
+
+  /**
+   * Gets the Heading Grid4 of the startpage.
+   *
+   * @param string
+   * @return this
+   */
+  public function getHeadingGrid4()
+  {
+      return $this->headinggrid4;
+  }
+
+  /**
+   * Sets the Heading Grid4 of the startpage.
+   *
+   * @param string $headinggrid4
+   * @return this
+   */
+  public function setHeadingGrid4($headinggrid4)
+  {
+      $this->headinggrid4 = (string)$headinggrid4;
+
+      return $this;
+  }
+
   /**
    * Gets the id of the startpage.
    *

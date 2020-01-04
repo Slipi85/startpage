@@ -76,6 +76,9 @@ class Index extends \Ilch\Controller\Admin
 
       if ($this->getRequest()->isPost()) {
           $validation = Validation::create($this->getRequest()->getPost(), [
+            'heading' => 'required',
+            'class' => 'required',
+            'grid' => 'required'
           ]);
 
           if ($validation->isValid()) {
@@ -86,6 +89,7 @@ class Index extends \Ilch\Controller\Admin
               }
 
               $model->setGrid($this->getRequest()->getPost('grid'));
+              $model->setBackgroundselection($this->getRequest()->getPost('background_selection'));
               $model->setBackground($this->getRequest()->getPost('background'));
               $model->setImage($this->getRequest()->getPost('image'));
               $model->setColor($this->getRequest()->getPost('color'));
@@ -97,6 +101,10 @@ class Index extends \Ilch\Controller\Admin
               $model->setGrid4($this->getRequest()->getPost('grid4'));
               $model->setBackgroundGrid($this->getRequest()->getPost('background_grid'));
               $model->setColorGrid($this->getRequest()->getPost('color_grid'));
+              $model->setHeadingGrid1($this->getRequest()->getPost('heading_grid1'));
+              $model->setHeadingGrid2($this->getRequest()->getPost('heading_grid2'));
+              $model->setHeadingGrid3($this->getRequest()->getPost('heading_grid3'));
+              $model->setHeadingGrid4($this->getRequest()->getPost('heading_grid4'));
               $model->setFunction($this->getRequest()->getPost('function'));
               $startpageMapper->save($model);
 

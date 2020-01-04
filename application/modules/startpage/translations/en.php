@@ -23,7 +23,7 @@ return [
 
   'setting' => 'Area Settings',
   'header' => 'Heading',
-  'class' => 'Style-Class',
+  'class-area' => 'Style-Class',
   'classinfo' => 'The Style class allows you to style the individual ranges under Custom CSS',
   'box1' => 'First Box',
   'box2' => 'Secend Box',

@@ -44,6 +44,10 @@ class Startpage extends \Ilch\Mapper
           $startpageModel->setGrid4($startpageRow['grid4']);
           $startpageModel->setBackgroundGrid($startpageRow['background_grid']);
           $startpageModel->setColorGrid($startpageRow['color_grid']);
+          $startpageModel->setHeadingGrid1($startpageRow['heading_grid1']);
+          $startpageModel->setHeadingGrid2($startpageRow['heading_grid2']);
+          $startpageModel->setHeadingGrid3($startpageRow['heading_grid3']);
+          $startpageModel->setHeadingGrid4($startpageRow['heading_grid4']);
           $startpageModel->setFunction($startpageRow['function']);
 
           $startpage[] = $startpageModel;
@@ -74,7 +78,7 @@ class Startpage extends \Ilch\Mapper
       $fields = [
           'id' => $startpage->getId(),
           'grid' => $startpage->getGrid(),
-          'background-selection' => $startpage->getBackgroundSelection(),
+          'background_selection' => $startpage->getBackgroundSelection(),
           'background' => $startpage->getBackground(),
           'image' => $startpage->getImage(),
           'color' => $startpage->getColor(),
@@ -86,6 +90,10 @@ class Startpage extends \Ilch\Mapper
           'grid4' => $startpage->getGrid4(),
           'background_grid' => $startpage->getBackgroundGrid(),
           'color_grid' => $startpage->getColorGrid(),
+          'heading_grid1' => $startpage->getHeadingGrid1(),
+          'heading_grid2' => $startpage->getHeadingGrid2(),
+          'heading_grid3' => $startpage->getHeadingGrid3(),
+          'heading_grid4' => $startpage->getHeadingGrid4(),
           'function' => $startpage->getFunction(),
       ];
 
