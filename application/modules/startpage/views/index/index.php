@@ -26,8 +26,7 @@ $startpages = $this->get('startpage');
         <div class="start-heading">
           <i class="<?=$this->escape($startpage->getHeadingGrid2()) ?>"></i>
         </div>
-        <?php $content = 1; ?>
-
+        <?php $content = $startpage->getGrid2(); ?>
         <?php if (strpos($content, '[PREVIEWSTOP]') !== false): ?>
           <?php $contentParts = explode('[PREVIEWSTOP]', $content); ?>
             <?=$this->purify(reset($contentParts)) ?>
