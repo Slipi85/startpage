@@ -65,34 +65,6 @@ class Startpage extends \Ilch\Model
   protected $class;
 
   /**
-   * The Grid1 of the startpage.
-   *
-   * @var string
-   */
-  protected $grid1;
-
-  /**
-   * The Grid2 of the startpage.
-   *
-   * @var string
-   */
-  protected $grid2;
-
-  /**
-   * The Grid3 of the startpage.
-   *
-   * @var string
-   */
-  protected $grid3;
-
-  /**
-   * The Grid4 of the startpage.
-   *
-   * @var string
-   */
-  protected $grid4;
-
-  /**
    * The Background-Img of the startpage.
    *
    * @var string
@@ -105,34 +77,6 @@ class Startpage extends \Ilch\Model
    * @var string
    */
   protected $colorGrid;
-
-  /**
-   * The Color-Grid of the startpage.
-   *
-   * @var string
-   */
-  protected $headinggrid1;
-
-  /**
-   * The Color-Grid of the startpage.
-   *
-   * @var string
-   */
-  protected $headinggrid2;
-
-  /**
-   * The Color-Grid of the startpage.
-   *
-   * @var string
-   */
-  protected $headinggrid3;
-
-  /**
-   * The Color-Grid of the startpage.
-   *
-   * @var string
-   */
-  protected $headinggrid4;
 
   /**
    * The Function of the startpage.
@@ -328,98 +272,6 @@ class Startpage extends \Ilch\Model
 
       return $this;
   }
-  /**
-   * Gets the grid1 of the startpage.
-   *
-   * @param string
-   * @return this
-   */
-  public function getGrid1()
-  {
-      return $this->grid1;
-  }
-
-  /**
-   * Sets the grid1 of the startpage.
-   *
-   * @param string $grid1
-   * @return this
-   */
-  public function setGrid1($grid1)
-  {
-      $this->grid1 = (string)$grid1;
-
-      return $this;
-  }
-  /**
-   * Gets the grid2 of the startpage.
-   *
-   * @param string
-   * @return this
-   */
-  public function getGrid2()
-  {
-      return $this->grid2;
-  }
-
-  /**
-   * Sets the grid2 of the startpage.
-   *
-   * @param string $grid2
-   * @return this
-   */
-  public function setGrid2($grid2)
-  {
-      $this->grid2 = (string)$grid2;
-
-      return $this;
-  }
-  /**
-   * Gets the grid3 of the startpage.
-   *
-   * @param string
-   * @return this
-   */
-  public function getGrid3()
-  {
-      return $this->grid3;
-  }
-
-  /**
-   * Sets the grid3 of the startpage.
-   *
-   * @param string $grid3
-   * @return this
-   */
-  public function setGrid3($grid3)
-  {
-      $this->grid3 = (string)$grid3;
-
-      return $this;
-  }
-  /**
-   * Gets the grid4 of the startpage.
-   *
-   * @param string
-   * @return this
-   */
-  public function getGrid4()
-  {
-      return $this->grid4;
-  }
-
-  /**
-   * Sets the grid4 of the startpage.
-   *
-   * @param string $grid4
-   * @return this
-   */
-  public function setGrid4($grid4)
-  {
-      $this->grid4 = (string)$grid4;
-
-      return $this;
-  }
 
   /**
    * Gets the background-grid of the startpage.
@@ -465,102 +317,6 @@ class Startpage extends \Ilch\Model
   public function setColorGrid($colorgrid)
   {
       $this->colorgrid = (string)$colorgrid;
-
-      return $this;
-  }
-
-  /**
-   * Gets the Heading Grid1 of the startpage.
-   *
-   * @param string
-   * @return this
-   */
-  public function getHeadingGrid1()
-  {
-      return $this->headinggrid1;
-  }
-
-  /**
-   * Sets the Heading Grid1 of the startpage.
-   *
-   * @param string $headinggrid
-   * @return this
-   */
-  public function setHeadingGrid1($headinggrid1)
-  {
-      $this->headinggrid1 = (string)$headinggrid1;
-
-      return $this;
-  }
-
-  /**
-   * Gets the Heading Grid1 of the startpage.
-   *
-   * @param string
-   * @return this
-   */
-  public function getHeadingGrid2()
-  {
-      return $this->headinggrid2;
-  }
-
-  /**
-   * Sets the Heading Grid1 of the startpage.
-   *
-   * @param string $headinggrid2
-   * @return this
-   */
-  public function setHeadingGrid2($headinggrid2)
-  {
-      $this->headinggrid2 = (string)$headinggrid2;
-
-      return $this;
-  }
-
-  /**
-   * Gets the Heading Grid3 of the startpage.
-   *
-   * @param string
-   * @return this
-   */
-  public function getHeadingGrid3()
-  {
-      return $this->headinggrid3;
-  }
-
-  /**
-   * Sets the Heading Grid3 of the startpage.
-   *
-   * @param string $headinggrid3
-   * @return this
-   */
-  public function setHeadingGrid3($headinggrid3)
-  {
-      $this->headinggrid3 = (string)$headinggrid3;
-
-      return $this;
-  }
-
-  /**
-   * Gets the Heading Grid4 of the startpage.
-   *
-   * @param string
-   * @return this
-   */
-  public function getHeadingGrid4()
-  {
-      return $this->headinggrid4;
-  }
-
-  /**
-   * Sets the Heading Grid4 of the startpage.
-   *
-   * @param string $headinggrid4
-   * @return this
-   */
-  public function setHeadingGrid4($headinggrid4)
-  {
-      $this->headinggrid4 = (string)$headinggrid4;
 
       return $this;
   }

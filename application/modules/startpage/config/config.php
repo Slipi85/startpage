@@ -50,14 +50,6 @@ class Config extends \Ilch\Config\Install
               `color` VARCHAR(255) NOT NULL,
               `heading` VARCHAR(255) NOT NULL,
               `class` VARCHAR(255) NOT NULL,
-              `grid1` MEDIUMTEXT NOT NULL,
-              `grid2` MEDIUMTEXT NOT NULL,
-              `grid3` MEDIUMTEXT NOT NULL,
-              `grid4` MEDIUMTEXT NOT NULL,
-              `heading_grid1` VARCHAR(255) NOT NULL,
-              `heading_grid2` VARCHAR(255) NOT NULL,
-              `heading_grid3` VARCHAR(255) NOT NULL,
-              `heading_grid4` VARCHAR(255) NOT NULL,
               `background_grid` VARCHAR(255) NOT NULL,
               `color_grid` VARCHAR(255) NOT NULL,
               `function` MEDIUMTEXT NOT NULL,
@@ -68,7 +60,7 @@ class Config extends \Ilch\Config\Install
               `id` Int(11) NOT NULL AUTO_INCREMENT,
               `ilch-col` VARCHAR(55) NOT NULL,
               PRIMARY KEY (`id`)
-      				) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1;
+      		) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1;
 
           INSERT INTO `[prefix]_startpage_col` (`id`, `ilch-col`) VALUES
               (1, "ilch-col-1"),

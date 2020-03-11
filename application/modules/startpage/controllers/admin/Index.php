@@ -6,6 +6,8 @@
 
 namespace Modules\Startpage\Controllers\Admin;
 
+use Modules\Admin\Mappers\Box as BoxMapper;
+use Modules\Admin\Models\Box as BoxModels;
 use Modules\Startpage\Mappers\Startpage as StartpageMapper;
 use Modules\Startpage\Models\Startpage as StartpageModel;
 use Ilch\Validation;
@@ -45,6 +47,7 @@ class Index extends \Ilch\Controller\Admin
   public function indexAction()
   {
       $startpageMapper = new StartpageMapper();
+      $modulesContent = new ModulesContent();
 
       $this->getLayout()->getAdminHmenu()
               ->add($this->getTranslator()->trans('menuStartpage'), ['action' => 'index']);
@@ -55,7 +58,8 @@ class Index extends \Ilch\Controller\Admin
           }
       }
 
-      $this->getView()->set('startpages', $startpageMapper->getStartpage());
+      $this->getView()->set('startpages', $startpageMapper->getStartpage())
+                      ->set('modules_content', $modulesContent);
   }
 
   public function treatAction()
@@ -95,16 +99,8 @@ class Index extends \Ilch\Controller\Admin
               $model->setColor($this->getRequest()->getPost('color'));
               $model->setHeading($this->getRequest()->getPost('heading'));
               $model->setClass($this->getRequest()->getPost('class'));
-              $model->setGrid1($this->getRequest()->getPost('grid1'));
-              $model->setGrid2($this->getRequest()->getPost('grid2'));
-              $model->setGrid3($this->getRequest()->getPost('grid3'));
-              $model->setGrid4($this->getRequest()->getPost('grid4'));
               $model->setBackgroundGrid($this->getRequest()->getPost('background_grid'));
               $model->setColorGrid($this->getRequest()->getPost('color_grid'));
-              $model->setHeadingGrid1($this->getRequest()->getPost('heading_grid1'));
-              $model->setHeadingGrid2($this->getRequest()->getPost('heading_grid2'));
-              $model->setHeadingGrid3($this->getRequest()->getPost('heading_grid3'));
-              $model->setHeadingGrid4($this->getRequest()->getPost('heading_grid4'));
               $model->setFunction($this->getRequest()->getPost('function'));
               $startpageMapper->save($model);
 
