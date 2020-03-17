@@ -3,7 +3,6 @@ use Modules\Admin\Mappers\Menu as MenuMapper;
 use Modules\Admin\Models\MenuItem;
 $boxArray = $this->get('boxArray');
 $selfBoxes = $this->get('self_boxes');
-//dumpVar($boxArray);
 ?>
 <h1>
   <?php if (!empty($this->get('startpage'))) {
@@ -168,26 +167,62 @@ $selfBoxes = $this->get('self_boxes');
             </select>
           </div>
       </div>
-  </div>
-  <div class="col-sm-5 col-lg-5" id="boxchange">
-    <h1><?=$this->getTrans('boxChange') ?></h1>
-    <div class="form-group">
-        <div class="changeBox">
-            <input type="hidden" id="id" value="" />
-            <div class="dyn">
-              <div class="form-group">
-                <label for="boxkey" class="col-lg-4 control-label"><?=$this->getTrans('box') ?></label>
-                  <div class="col-lg-8"><select class="form-control" id="boxkey">
-                    <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getModule().'_'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
+        <div class="form-group hidden" id="box1">
+            <label for="boxkey" class="col-lg-4 control-label">
+                <?=$this->getTrans('boxChange1') ?>:
+            </label>
+            <div class="col-lg-8">
+                <input type="hidden" id="id" value="" />
+                <div class="dyn">
+                    <div class="form-group">
+                        <select class="form-control" id="boxkey" name="box1">
+                            <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getModule().'_'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
+                    </div>
                 </div>
-              </div>
-            </div>
-
-            <div class="actions col-lg-12 text-right">
-                <input type="button" class="btn" id="menuItemAdd" value="<?=$this->getTrans('menuItemAdd') ?>">
             </div>
         </div>
-    </div>
+        <div class="form-group hidden" id="box2">
+            <label for="boxkey" class="col-lg-4 control-label">
+                <?=$this->getTrans('boxChange2') ?>:
+            </label>
+            <div class="col-lg-8">
+                <input type="hidden" id="id" value="" />
+                <div class="dyn">
+                    <div class="form-group">
+                        <select class="form-control" id="boxkey" name="box2">
+                            <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getModule().'_'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group hidden" id="box3">
+            <label for="boxkey" class="col-lg-4 control-label">
+                <?=$this->getTrans('boxChange3') ?>:
+            </label>
+            <div class="col-lg-8">
+                <input type="hidden" id="id" value="" />
+                <div class="dyn">
+                    <div class="form-group">
+                        <select class="form-control" id="boxkey" name="box3">
+                            <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getModule().'_'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group hidden" id="box4">
+            <label for="boxkey" class="col-lg-4 control-label">
+                <?=$this->getTrans('boxChange4') ?>:
+            </label>
+            <div class="col-lg-8">
+                <input type="hidden" id="id" value="" />
+                <div class="dyn">
+                    <div class="form-group">
+                        <select class="form-control" id="boxkey" name="box4">
+                            <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getModule().'_'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
   </div>
   <?php if (!empty($this->get('startpage'))) {
       echo $this->getSaveBar('updateButton');
@@ -197,15 +232,39 @@ $selfBoxes = $this->get('self_boxes');
   ?>
 </form>
 <script>
-//$('[name="grid"]').click(function () {
-//switch($(this).val()) {
-//    case "0":
-//        $('#boxchange').addClass('hidden');
-//        break;
-//    default:
-//        $('#boxchange').removeClass('hidden');
-//}
-//});
+$('[name="grid"]').click(function () {
+    switch($(this).val()) {
+        case "1":
+            $('#box1').removeClass('hidden');
+            $('#box2').addClass('hidden');
+            $('#box3').addClass('hidden');
+            $('#box4').addClass('hidden');
+            break;
+        case "2":
+            $('#box1').removeClass('hidden');
+            $('#box2').removeClass('hidden');
+            $('#box3').addClass('hidden');
+            $('#box4').addClass('hidden');
+            break;
+        case "3":
+            $('#box1').removeClass('hidden');
+            $('#box2').removeClass('hidden');
+            $('#box3').removeClass('hidden');
+            $('#box4').addClass('hidden');
+            break;
+        case "4":
+            $('#box1').removeClass('hidden');
+            $('#box2').removeClass('hidden');
+            $('#box3').removeClass('hidden');
+            $('#box4').removeClass('hidden');
+            break;
+        default:
+            $('#box1').removeClass('hidden');
+            $('#box2').removeClass('hidden');
+            $('#box3').removeClass('hidden');
+            $('#box4').removeClass('hidden');
+    }
+});
 $('[name="background_selection"]').click(function () {
 switch($(this).val()) {
     case "1":

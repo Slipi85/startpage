@@ -7,7 +7,6 @@
 namespace Modules\Startpage\Controllers\Admin;
 
 use Modules\Admin\Mappers\Box as BoxMapper;
-use Modules\Admin\Models\Box as BoxModels;
 use Modules\Startpage\Mappers\Startpage as StartpageMapper;
 use Modules\Startpage\Models\Startpage as StartpageModel;
 use Ilch\Validation;
@@ -63,9 +62,14 @@ class Index extends \Ilch\Controller\Admin
   public function treatAction()
   {
       $startpageMapper = new StartpageMapper();
-
       $boxMapper = new BoxMapper;
-      $boxMapper->getBoxList();
+
+      $locale = '';
+
+      if ((bool)$this->getConfig()->get('multilingual_acp') && $this->getTranslator()->getLocale() != $this->getConfig()->get('content_language')) {
+          $locale = $this->getTranslator()->getLocale();
+      }
+
 
       if ($this->getRequest()->getParam('id')) {
           $this->getLayout()->getAdminHmenu()
@@ -94,6 +98,10 @@ class Index extends \Ilch\Controller\Admin
               }
 
               $model->setGrid($this->getRequest()->getPost('grid'));
+              $model->setBox1($this->getRequest()->getPost('box1'));
+              $model->setBox2($this->getRequest()->getPost('box2'));
+              $model->setBox3($this->getRequest()->getPost('box3'));
+              $model->setBox4($this->getRequest()->getPost('box4'));
               $model->setBackgroundselection($this->getRequest()->getPost('background_selection'));
               $model->setBackground($this->getRequest()->getPost('background'));
               $model->setImage($this->getRequest()->getPost('image'));
@@ -117,7 +125,9 @@ class Index extends \Ilch\Controller\Admin
       }
 
       $this->getView()->set('startpages', $startpageMapper->getStartpage());
-      $this->getView()->set('boxArray', $boxMapper->getBoxList($this->getConfig()->get('locale')));
+      $this->getView()->set('boxArray', $boxMapper->getBoxList($this->getTranslator()->getLocale()))
+                      ->set('self_boxes', $boxMapper->getSelfBoxList($locale));
+
   }
 
   public function delStartpageAction()

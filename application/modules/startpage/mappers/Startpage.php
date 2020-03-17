@@ -32,22 +32,18 @@ class Startpage extends \Ilch\Mapper
           $startpageModel = new StartpageModel();
           $startpageModel->setId($startpageRow['id']);
           $startpageModel->setGrid($startpageRow['grid']);
+          $startpageModel->setBox1($startpageRow['box1']);
+          $startpageModel->setBox2($startpageRow['box2']);
+          $startpageModel->setBox3($startpageRow['box3']);
+          $startpageModel->setBox4($startpageRow['box4']);
           $startpageModel->setBackgroundSelection($startpageRow['background_selection']);
           $startpageModel->setBackground($startpageRow['background']);
           $startpageModel->setImage($startpageRow['image']);
           $startpageModel->setColor($startpageRow['color']);
           $startpageModel->setHeading($startpageRow['heading']);
           $startpageModel->setClass($startpageRow['class']);
-          $startpageModel->setGrid1($startpageRow['grid1']);
-          $startpageModel->setGrid2($startpageRow['grid2']);
-          $startpageModel->setGrid3($startpageRow['grid3']);
-          $startpageModel->setGrid4($startpageRow['grid4']);
           $startpageModel->setBackgroundGrid($startpageRow['background_grid']);
           $startpageModel->setColorGrid($startpageRow['color_grid']);
-          $startpageModel->setHeadingGrid1($startpageRow['heading_grid1']);
-          $startpageModel->setHeadingGrid2($startpageRow['heading_grid2']);
-          $startpageModel->setHeadingGrid3($startpageRow['heading_grid3']);
-          $startpageModel->setHeadingGrid4($startpageRow['heading_grid4']);
           $startpageModel->setFunction($startpageRow['function']);
 
           $startpage[] = $startpageModel;
@@ -78,22 +74,18 @@ class Startpage extends \Ilch\Mapper
       $fields = [
           'id' => $startpage->getId(),
           'grid' => $startpage->getGrid(),
+          'box1' => $startpage->getBox1(),
+          'box2' => $startpage->getBox2(),
+          'box3' => $startpage->getBox3(),
+          'box4' => $startpage->getBox4(),
           'background_selection' => $startpage->getBackgroundSelection(),
           'background' => $startpage->getBackground(),
           'image' => $startpage->getImage(),
           'color' => $startpage->getColor(),
           'heading' => $startpage->getHeading(),
           'class' => $startpage->getClass(),
-          'grid1' => $startpage->getGrid1(),
-          'grid2' => $startpage->getGrid2(),
-          'grid3' => $startpage->getGrid3(),
-          'grid4' => $startpage->getGrid4(),
           'background_grid' => $startpage->getBackgroundGrid(),
           'color_grid' => $startpage->getColorGrid(),
-          'heading_grid1' => $startpage->getHeadingGrid1(),
-          'heading_grid2' => $startpage->getHeadingGrid2(),
-          'heading_grid3' => $startpage->getHeadingGrid3(),
-          'heading_grid4' => $startpage->getHeadingGrid4(),
           'function' => $startpage->getFunction(),
       ];
 

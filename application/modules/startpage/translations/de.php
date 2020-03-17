@@ -7,7 +7,10 @@
 return [
     'menuStartpage' => 'Startseite',
     'noSection' => 'Keine Sektion hinzugefühgt',
-    'boxChange' => 'Boxenauswahl',
+    'boxChange1' => 'Boxenauswahl1',
+    'boxChange2' => 'Boxenauswahl2',
+    'boxChange3' => 'Boxenauswahl3',
+    'boxChange4' => 'Boxenauswahl4',
     'noSectionIndex' => '<h1>Keine Sektion hinzugefühgt</h1>
     <p>Gehe in den Admincenter unter Module/Startseite können Sektionen hinzugefühgt werden</p>',
     'pleaseSelect' => 'bitte wählen sie',
