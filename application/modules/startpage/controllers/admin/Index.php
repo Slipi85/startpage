@@ -47,7 +47,6 @@ class Index extends \Ilch\Controller\Admin
   public function indexAction()
   {
       $startpageMapper = new StartpageMapper();
-      $modulesContent = new ModulesContent();
 
       $this->getLayout()->getAdminHmenu()
               ->add($this->getTranslator()->trans('menuStartpage'), ['action' => 'index']);
@@ -58,13 +57,15 @@ class Index extends \Ilch\Controller\Admin
           }
       }
 
-      $this->getView()->set('startpages', $startpageMapper->getStartpage())
-                      ->set('modules_content', $modulesContent);
+      $this->getView()->set('startpages', $startpageMapper->getStartpage());
   }
 
   public function treatAction()
   {
       $startpageMapper = new StartpageMapper();
+
+      $boxMapper = new BoxMapper;
+      $boxMapper->getBoxList();
 
       if ($this->getRequest()->getParam('id')) {
           $this->getLayout()->getAdminHmenu()
@@ -116,6 +117,7 @@ class Index extends \Ilch\Controller\Admin
       }
 
       $this->getView()->set('startpages', $startpageMapper->getStartpage());
+      $this->getView()->set('boxArray', $boxMapper->getBoxList($this->getConfig()->get('locale')));
   }
 
   public function delStartpageAction()

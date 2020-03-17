@@ -1,8 +1,9 @@
 <?php
 use Modules\Admin\Mappers\Menu as MenuMapper;
 use Modules\Admin\Models\MenuItem;
-$boxes = $this->get('boxes');
+$boxArray = $this->get('boxArray');
 $selfBoxes = $this->get('self_boxes');
+//dumpVar($boxArray);
 ?>
 <h1>
   <?php if (!empty($this->get('startpage'))) {
@@ -167,31 +168,17 @@ $selfBoxes = $this->get('self_boxes');
             </select>
           </div>
       </div>
-      <?php if (!empty($this->get('startpage'))) {
-          echo $this->getSaveBar('updateButton');
-      } else {
-          echo $this->getSaveBar('addButton');
-      }
-      ?>
   </div>
   <div class="col-sm-5 col-lg-5" id="boxchange">
     <h1><?=$this->getTrans('boxChange') ?></h1>
     <div class="form-group">
         <div class="changeBox">
             <input type="hidden" id="id" value="" />
-            <div class="form-group">
-                <label for="title" class="col-lg-4 control-label">
-                    <?=$this->getTrans('itemTitle') ?>
-                </label>
-                <div class="col-lg-8">
-                    <input type="text" class="form-control" id="title" />
-                </div>
-            </div>
             <div class="dyn">
               <div class="form-group">
                 <label for="boxkey" class="col-lg-4 control-label"><?=$this->getTrans('box') ?></label>
                   <div class="col-lg-8"><select class="form-control" id="boxkey">
-                    <?php foreach ($boxes as $box) { echo '<option value="'.$box->getModule().'_'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
+                    <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getModule().'_'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
                 </div>
               </div>
             </div>
@@ -202,6 +189,12 @@ $selfBoxes = $this->get('self_boxes');
         </div>
     </div>
   </div>
+  <?php if (!empty($this->get('startpage'))) {
+      echo $this->getSaveBar('updateButton');
+  } else {
+      echo $this->getSaveBar('addButton');
+  }
+  ?>
 </form>
 <script>
 //$('[name="grid"]').click(function () {
