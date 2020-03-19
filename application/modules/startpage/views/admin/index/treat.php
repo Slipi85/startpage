@@ -1,8 +1,7 @@
 <?php
-use Modules\Admin\Mappers\Menu as MenuMapper;
-use Modules\Admin\Models\MenuItem;
 $boxArray = $this->get('boxArray');
-$selfBoxes = $this->get('self_boxes');
+$selfBoxes =$this->get('self_boxes');
+//$switchbackground = $this->get('startpage')
 ?>
 <h1>
   <?php if (!empty($this->get('startpage'))) {
@@ -39,7 +38,7 @@ $selfBoxes = $this->get('self_boxes');
 
       <!-- input background-color for section -->
 
-      <div id="background" class="hidden">
+      <div id="background" <?php if ($this->get('background_selection') != '1') { echo 'class="hidden"'; } ?>>
         <div class="form-group">
             <label for="background" class="col-lg-4 control-label">
                 <?=$this->getTrans('color') ?>:
@@ -58,7 +57,7 @@ $selfBoxes = $this->get('self_boxes');
 
       <!-- input background-image for section -->
 
-      <div id="image">
+      <div id="image" <?php if ($this->get('regist_accept') == '1') { echo 'class="hidden"'; } ?>>
         <div class="form-group <?=$this->validation()->hasError('image') ? 'has-error' : '' ?>">
             <label for="selectedImage" class="col-lg-4 control-label">
                 <?=$this->getTrans('image') ?>:
