@@ -18,6 +18,9 @@ class Index extends \Ilch\Controller\Frontend
     {
       $startpageMapper = new StartpageMapper();
       $startpage = $startpageMapper->getStartpage();
+
       $this->getView()->set('startpage', $startpage);
-    }
+
+      }
 }
+

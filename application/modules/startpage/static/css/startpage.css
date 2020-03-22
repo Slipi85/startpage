@@ -1,4 +1,4 @@
-.padding {
+.start-padding {
   padding:50px 0px;
 }
 .ilch-box-2 {
@@ -33,4 +33,5 @@
 .start-panel {
   padding:10px 5px;
   border-radius:5px;
+  margin: 0px 10px;
 }

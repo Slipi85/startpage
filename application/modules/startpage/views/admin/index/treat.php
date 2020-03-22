@@ -175,7 +175,8 @@ $selfBoxes =$this->get('self_boxes');
                 <div class="dyn">
                     <div class="form-group">
                         <select class="form-control" id="boxkey" name="box1">
-                            <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getModule().'_'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
+                            <option value="" disabled selected>Choose your option</option>
+                            <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
                     </div>
                 </div>
             </div>
@@ -189,7 +190,8 @@ $selfBoxes =$this->get('self_boxes');
                 <div class="dyn">
                     <div class="form-group">
                         <select class="form-control" id="boxkey" name="box2">
-                            <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getModule().'_'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
+                            <option value="" disabled selected>Choose your option</option>
+                            <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
                     </div>
                 </div>
             </div>
@@ -203,7 +205,8 @@ $selfBoxes =$this->get('self_boxes');
                 <div class="dyn">
                     <div class="form-group">
                         <select class="form-control" id="boxkey" name="box3">
-                            <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getModule().'_'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
+                            <option value="" disabled selected>Choose your option</option>
+                            <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
                     </div>
                 </div>
             </div>
@@ -217,7 +220,8 @@ $selfBoxes =$this->get('self_boxes');
                 <div class="dyn">
                     <div class="form-group">
                         <select class="form-control" id="boxkey" name="box4">
-                            <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getModule().'_'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
+                            <option value="" disabled selected>Choose your option</option>
+                            <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
                     </div>
                 </div>
             </div>

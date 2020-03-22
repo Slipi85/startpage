@@ -180,7 +180,7 @@ class Startpage extends \Ilch\Model
      */
     public function setBox1($box1)
     {
-        $this->box1 = (string)$box1;
+        $this->box1 = $box1;
 
         return $this;
     }
@@ -204,7 +204,7 @@ class Startpage extends \Ilch\Model
      */
     public function setBox2($box2)
     {
-        $this->box2 = (string)$box2;
+        $this->box2 = $box2;
 
         return $this;
     }
@@ -228,7 +228,7 @@ class Startpage extends \Ilch\Model
      */
     public function setBox3($box3)
     {
-        $this->box3 = (string)$box3;
+        $this->box3 = $box3;
 
         return $this;
     }
@@ -252,7 +252,7 @@ class Startpage extends \Ilch\Model
      */
     public function setBox4($box4)
     {
-        $this->box4 = (string)$box4;
+        $this->box4 = $box4;
 
         return $this;
     }

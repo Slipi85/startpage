@@ -5,7 +5,9 @@
  */
 
 namespace Modules\Startpage\Mappers;
+use Modules\Media\Models\Media as MediaModel;
 use Modules\Startpage\Models\Startpage as StartpageModel;
+use Modules\Admin\Models\Box as BoxModel;
 
 class Startpage extends \Ilch\Mapper
 {
@@ -30,12 +32,14 @@ class Startpage extends \Ilch\Mapper
       $statpages = [];
       foreach ($startpageArray as $startpageRow) {
           $startpageModel = new StartpageModel();
+          $boxMapper = new Startpage();
+
           $startpageModel->setId($startpageRow['id']);
           $startpageModel->setGrid($startpageRow['grid']);
-          $startpageModel->setBox1($startpageRow['box1']);
-          $startpageModel->setBox2($startpageRow['box2']);
-          $startpageModel->setBox3($startpageRow['box3']);
-          $startpageModel->setBox4($startpageRow['box4']);
+          $startpageModel->setBox1($boxMapper->getBoxById(['key' => $startpageRow['box1']]));
+          $startpageModel->setBox2($boxMapper->getBoxById(['key' => $startpageRow['box2']]));
+          $startpageModel->setBox3($boxMapper->getBoxById(['key' => $startpageRow['box3']]));
+          $startpageModel->setBox4($boxMapper->getBoxById(['key' => $startpageRow['box4']]));
           $startpageModel->setBackgroundSelection($startpageRow['background_selection']);
           $startpageModel->setBackground($startpageRow['background']);
           $startpageModel->setImage($startpageRow['image']);
@@ -51,6 +55,29 @@ class Startpage extends \Ilch\Mapper
 
       return $startpage;
   }
+
+
+    private function getBoxById($where = [])
+    {
+        $boxRow = $this->db()->select('*')
+            ->from('modules_boxes_content')
+            ->where($where)
+            ->execute()
+            ->fetchAssoc();
+
+        if (empty($boxRow)) {
+            return null;
+        }
+
+        $boxModel = new BoxModel();
+        $boxModel->setKey($boxRow['key']);
+        $boxModel->setModule($boxRow['module']);
+        $boxModel->setLocale($boxRow['locale']);
+        $boxModel->setName($boxRow['name']);
+
+        return $boxModel;
+    }
+
 
   /**
    * Get social by id.
