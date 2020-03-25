@@ -1,0 +1,32 @@
+.objekt-content {
+    padding:15px;
+    margin:40px;
+}
+.objekt-body {
+    background:#cecece;
+    height: 150px;
+}
+
+.ilch-label-left {
+    float:left;
+}
+
+.ilch-shadow-output {
+    padding-top:0px;
+    float:right;
+}
+
+#shadowOutput {
+    width:85%;
+    margin: 65px 7.5%;
+    background:#fff;
+    color:#000000;
+    display: inline-block;
+    text-align: center;
+}
+
+@media (min-width:768px) {
+    .shadow-dialog {
+        width:800px;
+    }
+}

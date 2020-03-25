@@ -12,7 +12,7 @@ use Modules\Admin\Models\Box as BoxModel;
 class Startpage extends \Ilch\Mapper
 {
   /**
-   * Get social (optionally with a condition)
+   * Get startpage (optionally with a condition)
    *
    * @param array $where
    * @return array|StartpageModel[]
@@ -55,7 +55,12 @@ class Startpage extends \Ilch\Mapper
 
       return $startpage;
   }
-
+    /**
+     * Get box from daterbase by key and name.
+     *
+     * @param $id
+     * @return mixed
+     */
 
     private function getBoxById($where = [])
     {
@@ -80,7 +85,7 @@ class Startpage extends \Ilch\Mapper
 
 
   /**
-   * Get social by id.
+   * Get startpage by id.
    *
    * @param $id
    * @return mixed
@@ -92,9 +97,9 @@ class Startpage extends \Ilch\Mapper
   }
 
   /**
-   * Save social to database.
+   * Save startpage to database.
    *
-   * @param StartpageModel $social
+   * @param StartpageModel $startpage
    */
   public function save(StartpageModel $startpage)
   {
@@ -129,7 +134,7 @@ class Startpage extends \Ilch\Mapper
   }
 
   /**
-   * Delete social by id.
+   * Delete startpage by id.
    *
    * @param $id
    */

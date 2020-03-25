@@ -1,3 +1,4 @@
+<link href="<?=$this->getModuleUrl('static/css/box-shadow_tool.css') ?>" rel="stylesheet">
 <?php
 $boxArray = $this->get('boxArray');
 $selfBoxes =$this->get('self_boxes');
@@ -26,9 +27,9 @@ $selfBoxes =$this->get('self_boxes');
               </div>
               <div class="col-lg-8">
                 <div class="flipswitch">
-                    <input type="radio" class="flipswitch-input" id="background-color" name="background_selection" value="1" <?php if ($this->get('background_selection') == '1') { echo 'checked="checked"'; } ?> />
+                    <input type="radio" class="flipswitch-input" id="background-color" name="background_selection" value="1" <?php if ($this->get('background_selection') == '1') { echo $this->originalInput('background_selection'); } ?> />
                     <label for="background-color" class="flipswitch-label flipswitch-label-on"><?=$this->getTrans('color') ?></label>
-                    <input type="radio" class="flipswitch-input" id="background-image" name="background_selection" value="0" <?php if ($this->get('background_selection') != '1') { echo 'checked="checked"'; } ?> />
+                    <input type="radio" class="flipswitch-input" id="background-image" name="background_selection" value="0" <?php if ($this->get('background_selection') != '1') { echo $this->originalInput('background_selection'); } ?> />
                     <label for="background-image" class="flipswitch-label flipswitch-label-off"><?=$this->getTrans('img') ?></label>
                     <span class="flipswitch-selection"></span>
                 </div>
@@ -38,14 +39,14 @@ $selfBoxes =$this->get('self_boxes');
 
       <!-- input background-color for section -->
 
-      <div id="background" <?php if ($this->get('background_selection') != '1') { echo 'class="hidden"'; } ?>>
+      <div id="background" <?php if ($this->get('background_selection') == '1') { echo 'class="hidden"'; } ?>>
         <div class="form-group">
             <label for="background" class="col-lg-4 control-label">
-                <?=$this->getTrans('color') ?>:
+                <?=$this->getTrans('backgroundColor') ?>:
             </label>
             <div class="col-lg-8 input-group date">
                 <input class="form-control color {hash:true}"
-                       id="background"
+                       id="background_selection"
                        name="background"
                        value="<?php if ($this->get('startpage') != '') { echo $this->get('startpage')->getBackground(); } else { echo '#32333B'; } ?>">
                 <span class="input-group-addon">
@@ -57,10 +58,10 @@ $selfBoxes =$this->get('self_boxes');
 
       <!-- input background-image for section -->
 
-      <div id="image" <?php if ($this->get('regist_accept') == '1') { echo 'class="hidden"'; } ?>>
+      <div id="image" <?php if ($this->get('regist_accept') != '1') { echo 'class="hidden"'; } ?>>
         <div class="form-group <?=$this->validation()->hasError('image') ? 'has-error' : '' ?>">
             <label for="selectedImage" class="col-lg-4 control-label">
-                <?=$this->getTrans('image') ?>:
+                <?=$this->getTrans('backgroundImage') ?>:
             </label>
             <div class="col-lg-8">
                 <div class="input-group">
@@ -123,7 +124,7 @@ $selfBoxes =$this->get('self_boxes');
         <!-- Input Background-Color for Boxes -->
         <div class="form-group">
             <label for="background_grid" class="col-lg-4 control-label">
-                <?=$this->getTrans('background') ?>:
+                <?=$this->getTrans('backgroundColor') ?>:
             </label>
             <div class="col-lg-8 input-group date">
                 <input class="form-control color {hash:true}"
@@ -132,6 +133,18 @@ $selfBoxes =$this->get('self_boxes');
                        value="<?php if ($this->get('startpage') != '') { echo $this->get('startpage')->getBackgroundGrid(); } else { echo '#32333B'; } ?>">
                 <span class="input-group-addon">
                     <span class="fa fa-undo" onclick="document.getElementById('color').color.fromString('32333B')"></span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="background_grid" class="col-lg-4 control-label">
+                <?=$this->getTrans('boxshadow') ?>:
+            </label>
+            <div class="col-lg-8">
+                <input class="form-control" data-toggle="modal" data-target="#boxShadow"
+                       id="shadowOutput1"
+                       name="background_grid"
+                       value="">
                 </span>
             </div>
         </div>
@@ -158,7 +171,7 @@ $selfBoxes =$this->get('self_boxes');
           </label>
           <div class="col-lg-8">
             <select class="form-control" id="grid" name="grid">
-                <option value="<?=($this->get('startpage') != '') ? $this->escape($this->get('startpage')->getGrid()) : $this->originalInput('grid') ?>" ><?=$this->getTrans('pleaseSelect')?></option>
+                <option value="<?=($this->get('startpage') != '') ? $this->escape($this->get('startpage')->getGrid()) : $this->escape($this->originalInput('grid')) ?>" ><?=$this->getTrans('pleaseSelect')?></option>
                 <option value="1"><?=$this->getTrans('one') ?></option>
                 <option value="2"><?=$this->getTrans('two') ?></option>
                 <option value="3"><?=$this->getTrans('three') ?></option>
@@ -175,7 +188,7 @@ $selfBoxes =$this->get('self_boxes');
                 <div class="dyn">
                     <div class="form-group">
                         <select class="form-control" id="boxkey" name="box1">
-                            <option value="" disabled selected>Choose your option</option>
+                            <option value="" disabled selected><?=$this->getTrans('pleaseSelect') ?></option>
                             <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
                     </div>
                 </div>
@@ -190,7 +203,7 @@ $selfBoxes =$this->get('self_boxes');
                 <div class="dyn">
                     <div class="form-group">
                         <select class="form-control" id="boxkey" name="box2">
-                            <option value="" disabled selected>Choose your option</option>
+                            <option value="" disabled selected><?=$this->getTrans('pleaseSelect') ?></option>
                             <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
                     </div>
                 </div>
@@ -205,7 +218,7 @@ $selfBoxes =$this->get('self_boxes');
                 <div class="dyn">
                     <div class="form-group">
                         <select class="form-control" id="boxkey" name="box3">
-                            <option value="" disabled selected>Choose your option</option>
+                            <option value="" disabled selected><?=$this->getTrans('pleaseSelect') ?></option>
                             <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
                     </div>
                 </div>
@@ -220,7 +233,7 @@ $selfBoxes =$this->get('self_boxes');
                 <div class="dyn">
                     <div class="form-group">
                         <select class="form-control" id="boxkey" name="box4">
-                            <option value="" disabled selected>Choose your option</option>
+                            <option value="" disabled selected><?=$this->getTrans('pleaseSelect') ?></option>
                             <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
                     </div>
                 </div>
@@ -234,6 +247,86 @@ $selfBoxes =$this->get('self_boxes');
   }
   ?>
 </form>
+<!--
+//
+//
+// Ilch Box-Shadow Tool
+//
+//
+-->
+<div class="modal fade" id="boxShadow" role="dialog">
+    <div class="modal-dialog shadow-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Ilch Box-Shadow Tool</h4>
+            </div>
+            <div class="modal-body row">
+                <div class="col-lg-4">
+                    <h4><?=$this->getTrans('shadowsetting') ?></h4>
+                    <label class="ilch-label-left"><?=$this->getTrans('blur') ?>:</label>
+                    <input type="range" id="blur" value="0" min="0" max="50">
+                    <label class="ilch-label-left"><?=$this->getTrans('spread') ?>:</label>
+                    <input type="range" id="spread" value="0" min="0" max="50">
+                    <h4><?=$this->getTrans('colorsetting') ?></h4>
+                    <label class="ilch-label-left"><?=$this->getTrans('shadowred') ?>:</label>
+                    <input type="range" id="shadowred" value="0" min="0" max="255">
+                    <label class="ilch-label-left"><?=$this->getTrans('shadowblue') ?>:</label>
+                    <input type="range" id="shadowblue" value="0" min="0" max="255">
+                    <label class="ilch-label-left"><?=$this->getTrans('shadowgreen') ?>:</label>
+                    <input type="range" id="shadowgreen" value="0" min="0" max="255">
+                    <label class="ilch-label-left"><?=$this->getTrans('shadowopacity') ?>:</label>
+                    <input type="range" id="shadowopacity" value="1" min="0" max="1" step="0.01">
+                    <script>
+                        function changeShadow() {
+                            let a = document.getElementById('background_selection').value;
+                            let b = document.getElementById('background_grid').value;
+                            let blur = document.getElementById('blur').value;
+                            let spread = document.getElementById('spread').value;
+                            let shadowred = document.getElementById('shadowred').value;
+                            let shadowblue = document.getElementById('shadowblue').value;
+                            let shadowgreen = document.getElementById('shadowgreen').value;
+                            let shadowopacity = document.getElementById('shadowopacity').value;
+                            let shadow = '0px 0px '+ blur +'px ' + spread + 'px rgb('+ shadowred +','+ shadowblue +','+ shadowgreen +',' + shadowopacity +')' ;
+                            let back = a;
+                            let backgroundcolor = b;
+                            document.getElementById('objektcontent').style.background = back;
+                            document.getElementById('boxshadow').style.background = backgroundcolor;
+                            document.getElementById('boxshadow').style.boxShadow = shadow;
+                            document.getElementById('shadowOutput').innerHTML =  shadow;
+                        }
+                        document.getElementById('background').addEventListener('input',changeShadow)
+                        document.getElementById('background_grid').addEventListener('input',changeShadow)
+                        document.getElementById('blur').addEventListener('input',changeShadow)
+                        document.getElementById('spread').addEventListener('input',changeShadow)
+                        document.getElementById('shadowred').addEventListener('input',changeShadow)
+                        document.getElementById('shadowblue').addEventListener('input',changeShadow)
+                        document.getElementById('shadowgreen').addEventListener('input',changeShadow)
+                        document.getElementById('shadowopacity').addEventListener('input',changeShadow)
+
+                        function getAndSetVal()
+                        {
+                            var input = document.getElementById('shadowOutput').innerHTML;
+                            document.getElementById('shadowOutput1').value = input;
+                        }
+                    </script>
+                </div>
+                <div class="col-lg-8" id="objektcontent">
+                    <div class="objekt-content">
+                        <div class="objekt-body" id="boxshadow">
+                            <span class="container" id="shadowOutput"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" onclick="getAndSetVal();"><?=$this->getTrans('shadowtake') ?></button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
 <script>
 $('[name="grid"]').click(function () {
     switch($(this).val()) {
@@ -292,3 +385,10 @@ switch($(this).val()) {
     ?>
 </script>
 <script src="<?=$this->getStaticUrl('js/jscolor/jscolor.js') ?>"></script>
+<!-- https://stackoverflow.com/questions/10890946/javascript-box-shadow
+<h1>The output element</h1>
+<form oninput="x.value=parseInt(a.value)">0
+    <input type="range" id="a" value="0">
+    <output name="x" for="a"></output>
+</form>
+-->

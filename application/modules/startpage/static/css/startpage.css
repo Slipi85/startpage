@@ -1,3 +1,6 @@
+#startpage {
+  margin:0px 15px;
+}
 .start-padding {
   padding:50px 0px;
 }
@@ -26,12 +29,18 @@
   text-transform: uppercase;
 }
 
-.start-heading i {
-  font-size:32px;
-}
-
-.start-panel {
+.start-content {
   padding:10px 5px;
   border-radius:5px;
-  margin: 0px 10px;
+  margin: 0px 15px;
+}
+
+.stretch {
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  -webkit-align-content:stretch;
+  -ms-align-content:stretch;
+  -ms-flex-line-pack:stretch;
+  align-content:stretch
 }
