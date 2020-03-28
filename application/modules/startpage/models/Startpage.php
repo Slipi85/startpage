@@ -53,7 +53,7 @@ class Startpage extends \Ilch\Model
     /**
     * The Background-Selection of the startpage.
     *
-    * @var string
+    * @var int
     */
     protected $backgroundselection;
 
@@ -91,6 +91,13 @@ class Startpage extends \Ilch\Model
     * @var string
     */
     protected $class;
+
+    /**
+     * The Boxshadow of the startpage.
+     *
+     * @var string
+     */
+    protected $boxshadow;
 
     /**
     * The Background-Img of the startpage.
@@ -419,6 +426,30 @@ class Startpage extends \Ilch\Model
       $this->backgroundgrid = (string)$backgroundgrid;
 
       return $this;
+    }
+
+    /**
+     * Gets the boxshadow of the startpage.
+     *
+     * @param string
+     * @return this
+     */
+    public function getBoxShadow()
+    {
+        return $this->boxshadow;
+    }
+
+    /**
+     * Sets the boxshadow of the startpage.
+     *
+     * @param string $boxshadow
+     * @return this
+     */
+    public function setBoxShadow($boxshadow)
+    {
+        $this->boxshadow = (string)$boxshadow;
+
+        return $this;
     }
 
     /**

@@ -11,7 +11,7 @@ class Config extends \Ilch\Config\Install
     public $config = [
         'key' => 'startpage',
         'version' => '1.0',
-        'icon_small' => 'fa-superpowers',
+        'icon_small' => 'fa-star',
         'author' => 'Slipi',
         'link' => 'https://www.ilch.de',
         'languages' => [
@@ -25,7 +25,8 @@ class Config extends \Ilch\Config\Install
             ],
         ],
         'ilchCore' => '2.0.0',
-        'phpVersion' => '5.6'
+        'phpVersion' => '5.6',
+        'system_module' => 'true'
     ];
 
     public function install()
@@ -47,12 +48,13 @@ class Config extends \Ilch\Config\Install
       				`box2` VARCHAR(255) NOT NULL,
       				`box3` VARCHAR(255) NOT NULL,
       				`box4` VARCHAR(255) NOT NULL,
-                    `background_selection` MEDIUMTEXT NOT NULL,
+                    `background_selection` INT(11) NOT NULL,
       				`background` VARCHAR(255) NOT NULL,
                     `image` VARCHAR(255) NOT NULL,
                     `color` VARCHAR(255) NOT NULL,
                     `heading` VARCHAR(255) NOT NULL,
                     `class` VARCHAR(255) NOT NULL,
+                    `boxshadow` VARCHAR(255) NOT NULL,
                     `background_grid` VARCHAR(255) NOT NULL,
                     `color_grid` VARCHAR(255) NOT NULL,
                     `function` MEDIUMTEXT NOT NULL,

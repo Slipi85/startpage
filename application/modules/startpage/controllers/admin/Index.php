@@ -108,6 +108,7 @@ class Index extends \Ilch\Controller\Admin
               $model->setColor($this->getRequest()->getPost('color'));
               $model->setHeading($this->getRequest()->getPost('heading'));
               $model->setClass($this->getRequest()->getPost('class'));
+              $model->setBoxShadow($this->getRequest()->getPost('boxshadow'));
               $model->setBackgroundGrid($this->getRequest()->getPost('background_grid'));
               $model->setColorGrid($this->getRequest()->getPost('color_grid'));
               $model->setFunction($this->getRequest()->getPost('function'));

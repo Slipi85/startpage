@@ -27,9 +27,9 @@ $selfBoxes =$this->get('self_boxes');
               </div>
               <div class="col-lg-8">
                 <div class="flipswitch">
-                    <input type="radio" class="flipswitch-input" id="background-color" name="background_selection" value="1" <?php if ($this->get('background_selection') == '1') { echo $this->originalInput('background_selection'); } ?> />
+                    <input type="radio" class="flipswitch-input" id="background-color" name="background_selection" value="1" <?php if ($this->get('background_selection') == '1') { echo 'checked="checked"'; }  ?> />
                     <label for="background-color" class="flipswitch-label flipswitch-label-on"><?=$this->getTrans('color') ?></label>
-                    <input type="radio" class="flipswitch-input" id="background-image" name="background_selection" value="0" <?php if ($this->get('background_selection') != '1') { echo $this->originalInput('background_selection'); } ?> />
+                    <input type="radio" class="flipswitch-input" id="background-image" name="background_selection" value="0" <?php if ($this->get('background_selection') != '1') { echo 'checked="checked"'; }  ?> />
                     <label for="background-image" class="flipswitch-label flipswitch-label-off"><?=$this->getTrans('img') ?></label>
                     <span class="flipswitch-selection"></span>
                 </div>
@@ -143,8 +143,9 @@ $selfBoxes =$this->get('self_boxes');
             <div class="col-lg-8">
                 <input class="form-control" data-toggle="modal" data-target="#boxShadow"
                        id="shadowOutput1"
-                       name="background_grid"
-                       value="">
+                       name="boxshadow"
+                       onclick="setSetVal()"
+                       value="<?php if ($this->get('startpage') != '') { echo $this->get('startpage')->getBoxShadow(); } else { echo ''; } ?>">
                 </span>
             </div>
         </div>
@@ -277,6 +278,7 @@ $selfBoxes =$this->get('self_boxes');
                     <input type="range" id="shadowgreen" value="0" min="0" max="255">
                     <label class="ilch-label-left"><?=$this->getTrans('shadowopacity') ?>:</label>
                     <input type="range" id="shadowopacity" value="1" min="0" max="1" step="0.01">
+                    <div id="demo"></div>
                     <script>
                         function changeShadow() {
                             let a = document.getElementById('background_selection').value;
@@ -287,7 +289,7 @@ $selfBoxes =$this->get('self_boxes');
                             let shadowblue = document.getElementById('shadowblue').value;
                             let shadowgreen = document.getElementById('shadowgreen').value;
                             let shadowopacity = document.getElementById('shadowopacity').value;
-                            let shadow = '0px 0px '+ blur +'px ' + spread + 'px rgb('+ shadowred +','+ shadowblue +','+ shadowgreen +',' + shadowopacity +')' ;
+                            let shadow = '0px 0px '+ blur +'px ' + spread + 'px rgb( '+ shadowred +' , '+ shadowblue +' , '+ shadowgreen +' , ' + shadowopacity +' )' ;
                             let back = a;
                             let backgroundcolor = b;
                             document.getElementById('objektcontent').style.background = back;
@@ -304,10 +306,29 @@ $selfBoxes =$this->get('self_boxes');
                         document.getElementById('shadowgreen').addEventListener('input',changeShadow)
                         document.getElementById('shadowopacity').addEventListener('input',changeShadow)
 
-                        function getAndSetVal()
-                        {
-                            var input = document.getElementById('shadowOutput').innerHTML;
+                        function getSetVal() {
+                            let input = document.getElementById('shadowOutput').innerHTML;
                             document.getElementById('shadowOutput1').value = input;
+                        }
+
+                        function setSetVal() {
+                            let value = document.getElementById('shadowOutput1').value;
+                            var str = document.getElementById('shadowOutput1').value;
+                            var res = str.split("px");
+                            var blur = (res[2]);
+                            var spread = (res[3]);
+                            var shadowred = (res[4]);
+                            var red = shadowred.split("rgb(");
+                            var all = blur + spread + red;
+                            var allouput = all.split(")");
+                            document.getElementById("blur").value = blur;
+                            document.getElementById("spread").value = spread;
+                            document.getElementById("spread").value = shadowred;
+                            document.getElementById("demo").innerHTML = allouput;
+                            document.getElementById("shadowOutput").innerHTML = value;
+                        }
+
+                        function myFunction() {
                         }
                     </script>
                 </div>
@@ -320,7 +341,7 @@ $selfBoxes =$this->get('self_boxes');
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" onclick="getAndSetVal();"><?=$this->getTrans('shadowtake') ?></button>
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal" onclick="getSetVal();"><?=$this->getTrans('shadowtake') ?></button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -386,6 +407,7 @@ switch($(this).val()) {
 </script>
 <script src="<?=$this->getStaticUrl('js/jscolor/jscolor.js') ?>"></script>
 <!-- https://stackoverflow.com/questions/10890946/javascript-box-shadow
+https://www.tutorialrepublic.com/codelab.php?topic=faq&file=javascript-split-a-string-by-space
 <h1>The output element</h1>
 <form oninput="x.value=parseInt(a.value)">0
     <input type="range" id="a" value="0">

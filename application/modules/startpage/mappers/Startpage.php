@@ -46,6 +46,7 @@ class Startpage extends \Ilch\Mapper
           $startpageModel->setColor($startpageRow['color']);
           $startpageModel->setHeading($startpageRow['heading']);
           $startpageModel->setClass($startpageRow['class']);
+          $startpageModel->setBoxShadow($startpageRow['boxshadow']);
           $startpageModel->setBackgroundGrid($startpageRow['background_grid']);
           $startpageModel->setColorGrid($startpageRow['color_grid']);
           $startpageModel->setFunction($startpageRow['function']);
@@ -116,6 +117,7 @@ class Startpage extends \Ilch\Mapper
           'color' => $startpage->getColor(),
           'heading' => $startpage->getHeading(),
           'class' => $startpage->getClass(),
+          'boxshadow' => $startpage->getBoxShadow(),
           'background_grid' => $startpage->getBackgroundGrid(),
           'color_grid' => $startpage->getColorGrid(),
           'function' => $startpage->getFunction(),

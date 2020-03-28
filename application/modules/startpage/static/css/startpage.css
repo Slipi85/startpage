@@ -4,16 +4,6 @@
 .start-padding {
   padding:50px 0px;
 }
-.ilch-box-2 {
-  padding:15px;
-  overflow: hidden;
-  width:50%;
-}
-.ilch-box-m {
-  display:flex;
-  align-items: stretch;
-}
-
 /*-- Heading Area --*/
 
 .section-heading {
@@ -32,15 +22,17 @@
 .start-content {
   padding:10px 5px;
   border-radius:5px;
-  margin: 0px 15px;
+  margin: 15px 15px;
 }
 
-.stretch {
-  display: flex;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  -webkit-align-content:stretch;
-  -ms-align-content:stretch;
-  -ms-flex-line-pack:stretch;
-  align-content:stretch
+@media(min-width: 1200px) {
+  .stretch {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    -webkit-align-content:stretch;
+    -ms-align-content:stretch;
+    -ms-flex-line-pack:stretch;
+    align-content:stretch
+  }
 }
