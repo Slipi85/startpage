@@ -18,28 +18,9 @@ $selfBoxes =$this->get('self_boxes');
     <!-- switch Box or Slider -->
     <div class="col-sm-7 col-lg7">
 
-      <!-- switch Background-Color or Background-Image for section -->
-
-      <div id="switchbackground">
-          <div class="form-group">
-              <div class="col-lg-4 control-label">
-                  <?=$this->getTrans('background') ?>:
-              </div>
-              <div class="col-lg-8">
-                <div class="flipswitch">
-                    <input type="radio" class="flipswitch-input" id="background-color" name="background_selection" value="1" <?php if ($this->get('background_selection') == '1') { echo 'checked="checked"'; }  ?> />
-                    <label for="background-color" class="flipswitch-label flipswitch-label-on"><?=$this->getTrans('color') ?></label>
-                    <input type="radio" class="flipswitch-input" id="background-image" name="background_selection" value="0" <?php if ($this->get('background_selection') != '1') { echo 'checked="checked"'; }  ?> />
-                    <label for="background-image" class="flipswitch-label flipswitch-label-off"><?=$this->getTrans('img') ?></label>
-                    <span class="flipswitch-selection"></span>
-                </div>
-              </div>
-          </div>
-      </div>
-
       <!-- input background-color for section -->
 
-      <div id="background" <?php if ($this->get('background_selection') == '1') { echo 'class="hidden"'; } ?>>
+      <div id="background">
         <div class="form-group">
             <label for="background" class="col-lg-4 control-label">
                 <?=$this->getTrans('backgroundColor') ?>:
@@ -55,27 +36,6 @@ $selfBoxes =$this->get('self_boxes');
             </div>
         </div>
       </div>
-
-      <!-- input background-image for section -->
-
-      <div id="image" <?php if ($this->get('regist_accept') != '1') { echo 'class="hidden"'; } ?>>
-        <div class="form-group <?=$this->validation()->hasError('image') ? 'has-error' : '' ?>">
-            <label for="selectedImage" class="col-lg-4 control-label">
-                <?=$this->getTrans('backgroundImage') ?>:
-            </label>
-            <div class="col-lg-8">
-                <div class="input-group">
-                    <input type="text"
-                           class="form-control"
-                           id="selectedImage"
-                           name="image"
-                           value="<?=($this->get('startpage') != '') ? $this->escape($this->get('startpage')->getImage()) : $this->originalInput('image') ?>" />
-                    <span class="input-group-addon"><a id="media" href="javascript:media()"><i class="fa fa-picture-o"></i></a></span>
-                </div>
-            </div>
-        </div>
-      </div>
-
       <!-- input font-color for section -->
 
       <div class="form-group">
@@ -313,6 +273,8 @@ $selfBoxes =$this->get('self_boxes');
 
                         function setSetVal() {
                             let value = document.getElementById('shadowOutput1').value;
+                            let sectionBack = document.getElementById('background_selection').value;
+                            let gridBack = document.getElementById('background_grid').value;
                             var str = document.getElementById('shadowOutput1').value;
                             var res = str.split("px");
                             var blur = (res[2]);
@@ -325,7 +287,9 @@ $selfBoxes =$this->get('self_boxes');
                             document.getElementById("spread").value = spread;
                             document.getElementById("spread").value = shadowred;
                             document.getElementById("demo").innerHTML = allouput;
-                            document.getElementById("shadowOutput").innerHTML = value;
+                            document.getElementById("boxshadow").style.boxShadow = value;
+                            document.getElementById("boxshadow").style.background = gridBack;
+                            document.getElementById("objektcontent").style.background = sectionBack;
                         }
 
                         function myFunction() {
@@ -382,21 +346,6 @@ $('[name="grid"]').click(function () {
             $('#box4').removeClass('hidden');
     }
 });
-$('[name="background_selection"]').click(function () {
-switch($(this).val()) {
-    case "1":
-        $('#image').addClass('hidden');
-        $('#background').removeClass('hidden');
-        break;
-    case "0":
-        $('#image').removeClass('hidden');
-        $('#background').addClass('hidden');
-        break;
-    default:
-        $('#background').removeClass('hidden');
-        $('#image').removeClass('hidden');
-}
-});
 </script>
     <?=$this->getDialog('mediaModal', $this->getTrans('media'), '<iframe frameborder="0"></iframe>'); ?>
 <script>
@@ -408,9 +357,4 @@ switch($(this).val()) {
 <script src="<?=$this->getStaticUrl('js/jscolor/jscolor.js') ?>"></script>
 <!-- https://stackoverflow.com/questions/10890946/javascript-box-shadow
 https://www.tutorialrepublic.com/codelab.php?topic=faq&file=javascript-split-a-string-by-space
-<h1>The output element</h1>
-<form oninput="x.value=parseInt(a.value)">0
-    <input type="range" id="a" value="0">
-    <output name="x" for="a"></output>
-</form>
 -->

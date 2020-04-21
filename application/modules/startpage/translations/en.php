@@ -20,9 +20,7 @@ return [
     'three' => '3 Area',
     'fore' => '4 Area',
     'background' => 'Background',
-    'img' => 'IMG',
-    'backgroundColor' => 'Color',
-    'backgroundImage' => 'Image',
+    'backgroundColor' => 'Background Color',
     'box' => 'Boxen',
     'textcolor' => 'Text-Color',
 
