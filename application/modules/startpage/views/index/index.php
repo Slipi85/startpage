@@ -9,13 +9,13 @@ $layout = $this->get('layout');
             <?php foreach ($startpages as $startpage): ?>
                 <?php
                     if ($startpage->getGrid() == '1') {
-                    $grid = "col-lg-12";
+                    $grid = 'col-lg-12';
                     } elseif ($startpage->getGrid() == '2') {
-                    $grid = "col-lg-6";
+                    $grid = 'col-lg-6';
                     } elseif ($startpage->getGrid() == '3') {
-                    $grid = "col-lg-4";
+                    $grid = 'col-lg-4';
                     } else {
-                    $grid = "col-lg-3";
+                    $grid = 'col-lg-3';
                     }
 
                     //$this->getBox($box1->getKey(), $box1->getKey());
@@ -47,11 +47,11 @@ $layout = $this->get('layout');
                     echo $content;
                     ?>
 <style>
-.<?php echo $startpage->getClass();?> {
+.<?= $startpage->getClass()?> {
     background:<?php if($startpage->getBackgroundSelection() == 0 ) {echo 'url(./'.$startpage->getImage().')';} else {echo $startpage->getBackground();}?>;
     color:<?=$this->escape($startpage->getColor()) ?>;}
-.<?php echo $startpage->getClass();?> .start-content {
-    background:<?php echo $startpage->getBackgroundGrid()?>;
+.<?= $startpage->getClass()?> .start-content {
+    background: <?= $startpage->getBackgroundGrid()?>;
     color:<?=$this->escape($startpage->getColorGrid()) ?>;
     box-shadow:<?=$this->escape($startpage->getBoxShadow()) ?>}
 </style>
