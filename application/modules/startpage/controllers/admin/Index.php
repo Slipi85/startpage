@@ -84,6 +84,12 @@ class Index extends \Ilch\Controller\Admin
       }
 
       if ($this->getRequest()->isPost()) {
+          Validation::setCustomFieldAliases([
+              'heading' => 'header',
+              'class' => 'class-area',
+              'grid' => 'areas',
+          ]);
+
           $validation = Validation::create($this->getRequest()->getPost(), [
             'heading' => 'required',
             'class' => 'required',
