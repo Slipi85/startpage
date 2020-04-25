@@ -26,8 +26,8 @@ return [
     'textcolor' => 'Text-Farbe',
 
     'setting' => 'Bereich Einstellungen',
-    'header' => 'Überschrift',
-    'class-area' => 'Style-Klasse',
+    'heading' => 'Überschrift',
+    'class' => 'Style-Klasse',
     'classinfo' => 'Mit der Style-Klasse können Sie unter benutzerdefinierte CSS die einzelnen Bereiche stylen.',
 
     //bos-shadow-tool

@@ -26,8 +26,8 @@ return [
     'textcolor' => 'Text color',
 
     'setting' => 'Area settings',
-    'header' => 'Heading',
-    'class-area' => 'Style class',
+    'heading' => 'Heading',
+    'class' => 'Style class',
     'classinfo' => 'The Style class allows you to style the individual areas under Custom CSS',
 
     //bos-shadow-tool

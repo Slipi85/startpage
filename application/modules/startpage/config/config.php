@@ -39,7 +39,7 @@ class Config extends \Ilch\Config\Install
     {
         return 'CREATE TABLE IF NOT EXISTS `[prefix]_startpage` (
                     `id` INT(11) NOT NULL AUTO_INCREMENT,
-                    `grid` MEDIUMTEXT NOT NULL,
+                    `grid` TINYINT(1) NOT NULL,
                     `box1` VARCHAR(255) NOT NULL,
                     `box2` VARCHAR(255) NOT NULL,
                     `box3` VARCHAR(255) NOT NULL,

@@ -17,7 +17,7 @@
                         <th><?=$this->getCheckAllCheckbox('check_startpage') ?></th>
                         <th></th>
                         <th></th>
-                        <th><?=$this->getTrans('header') ?></th>
+                        <th><?=$this->getTrans('heading') ?></th>
                         <th><?=$this->getTrans('areas') ?></th>
                         <th><?=$this->getTrans('class') ?></th>
                     </tr>

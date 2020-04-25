@@ -57,7 +57,7 @@ $selfBoxes =$this->get('self_boxes');
         <!-- Input Section Area Heading -->
         <div class="form-group <?=$this->validation()->hasError('heading') ? 'has-error' : '' ?>">
             <label for="heading" class="col-lg-4 control-label">
-                <?=$this->getTrans('header') ?>:
+                <?=$this->getTrans('heading') ?>:
             </label>
             <div class="col-lg-8">
                 <input type="text"
@@ -70,7 +70,7 @@ $selfBoxes =$this->get('self_boxes');
         <!-- Input Section Area Class for style -->
         <div class="form-group <?=$this->validation()->hasError('text') ? 'has-error' : '' ?>">
             <label for="class" class="col-lg-4 control-label">
-                <?=$this->getTrans('class-area') ?>:<br />
+                <?=$this->getTrans('class') ?>:<br />
                 <?=$this->getTrans('classinfo') ?>
             </label>
             <div class="col-lg-8">
@@ -148,8 +148,14 @@ $selfBoxes =$this->get('self_boxes');
                 <div class="dyn">
                     <div class="form-group">
                         <select class="form-control" id="box1" name="box1">
-                            <option value="" disabled selected><?=$this->getTrans('pleaseSelect') ?></option>
-                            <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
+                            <option value="" disabled><?=$this->getTrans('pleaseSelect') ?></option>
+                            <?php foreach ($boxArray as $box) {
+                                echo '<option value="'.$box->getKey().'" '.(($this->get('startpage') != '' && !empty($this->get('startpage')->getBox1()) && ($this->get('startpage')->getBox1()->getKey() === $box->getKey())) ? 'selected' : '').'>'.$box->getName().'</option>';
+                            }
+                            foreach ($selfBoxes as $box) {
+                                echo '<option value="'.$box->getId().'" '.(($this->get('startpage') != '' && !empty($this->get('startpage')->getBox1()) && ($this->get('startpage')->getBox1()->getId() === $box->getId())) ? 'selected' : '').'>self_'.$this->escape($box->getTitle()).'</option>';
+                            }
+                            echo '</select>'; ?>
                     </div>
                 </div>
             </div>
@@ -162,8 +168,14 @@ $selfBoxes =$this->get('self_boxes');
                 <div class="dyn">
                     <div class="form-group">
                         <select class="form-control" id="box2" name="box2">
-                            <option value="" disabled selected><?=$this->getTrans('pleaseSelect') ?></option>
-                            <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
+                            <option value="" disabled><?=$this->getTrans('pleaseSelect') ?></option>
+                            <?php foreach ($boxArray as $box) {
+                                echo '<option value="'.$box->getKey().'" '.(($this->get('startpage') != '' && !empty($this->get('startpage')->getBox2()) && ($this->get('startpage')->getBox2()->getKey() === $box->getKey())) ? 'selected' : '').'>'.$box->getName().'</option>';
+                            }
+                            foreach ($selfBoxes as $box) {
+                                echo '<option value="'.$box->getId().'" '.(($this->get('startpage') != '' && !empty($this->get('startpage')->getBox2()) && ($this->get('startpage')->getBox2()->getId() === $box->getId())) ? 'selected' : '').'>self_'.$this->escape($box->getTitle()).'</option>';
+                            }
+                            echo '</select>'; ?>
                     </div>
                 </div>
             </div>
@@ -176,8 +188,14 @@ $selfBoxes =$this->get('self_boxes');
                 <div class="dyn">
                     <div class="form-group">
                         <select class="form-control" id="box3" name="box3">
-                            <option value="" disabled selected><?=$this->getTrans('pleaseSelect') ?></option>
-                            <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
+                            <option value="" disabled><?=$this->getTrans('pleaseSelect') ?></option>
+                            <?php foreach ($boxArray as $box) {
+                                echo '<option value="'.$box->getKey().'" '.(($this->get('startpage') != '' && !empty($this->get('startpage')->getBox3()) && ($this->get('startpage')->getBox3()->getKey() === $box->getKey())) ? 'selected' : '').'>'.$box->getName().'</option>';
+                            }
+                            foreach ($selfBoxes as $box) {
+                                echo '<option value="'.$box->getId().'" '.(($this->get('startpage') != '' && !empty($this->get('startpage')->getBox3()) && ($this->get('startpage')->getBox3()->getId() === $box->getId())) ? 'selected' : '').'>self_'.$this->escape($box->getTitle()).'</option>';
+                            }
+                            echo '</select>'; ?>
                     </div>
                 </div>
             </div>
@@ -190,8 +208,14 @@ $selfBoxes =$this->get('self_boxes');
                 <div class="dyn">
                     <div class="form-group">
                         <select class="form-control" id="box4" name="box4">
-                            <option value="" disabled selected><?=$this->getTrans('pleaseSelect') ?></option>
-                            <?php foreach ($boxArray as $box) { echo '<option value="'.$box->getKey().'">'.$box->getName().'</option>'; } foreach ($selfBoxes as $box) { echo '<option value="'.$box->getId().'">self_'.$this->escape($box->getTitle()).'</option>';} echo '</select>'; ?>
+                            <option value="" disabled><?=$this->getTrans('pleaseSelect') ?></option>
+                            <?php foreach ($boxArray as $box) {
+                                echo '<option value="'.$box->getKey().'" '.(($this->get('startpage') != '' && !empty($this->get('startpage')->getBox4()) && ($this->get('startpage')->getBox4()->getKey() === $box->getKey())) ? 'selected' : '').'>'.$box->getName().'</option>';
+                            }
+                            foreach ($selfBoxes as $box) {
+                                echo '<option value="'.$box->getId().'" '.(($this->get('startpage') != '' && !empty($this->get('startpage')->getBox4()) && ($this->get('startpage')->getBox4()->getId() === $box->getId())) ? 'selected' : '').'>self_'.$this->escape($box->getTitle()).'</option>';
+                            }
+                            echo '</select>'; ?>
                     </div>
                 </div>
             </div>
@@ -317,6 +341,15 @@ $selfBoxes =$this->get('self_boxes');
     </div>
 </div>
 <script>
+$(document).ready(function() {
+    let grids = '<?=($this->get('startpage') != '' && !empty($this->get('startpage')->getGrid())) ? $this->get('startpage')->getGrid() : '' ?>';
+
+    if (grids !== '') {
+        $('[name="grid"]').val(grids).change();
+        $('[name="grid"]').click();
+    }
+});
+
 $('[name="grid"]').click(function () {
     switch($(this).val()) {
         case "1":
@@ -344,10 +377,10 @@ $('[name="grid"]').click(function () {
             $('#box4').removeClass('hidden');
             break;
         default:
-            $('#box1').addClass('hidden');
-            $('#box2').addClass('hidden');
-            $('#box3').addClass('hidden');
-            $('#box4').addClass('hidden');
+            // $('#box1').addClass('hidden');
+            // $('#box2').addClass('hidden');
+            // $('#box3').addClass('hidden');
+            // $('#box4').addClass('hidden');
     }
 });
 </script>

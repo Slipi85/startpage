@@ -25,12 +25,25 @@ class Startpage extends \Ilch\Mapper
             ->where($where)
             ->execute()
             ->fetchRows();
+//        $startpageArray = $this->db()->select(['startpage.id', 'startpage.grid', 'startpage.box1', 'startpage.box2', 'startpage.box3', 'startpage.box4', 'startpage.background_selection', 'startpage.background', 'startpage.image', 'startpage.color', 'startpage.heading', 'startpage.class', 'startpage.boxshadow', 'startpage.background_grid', 'startpage.color_grid', 'startpage.function'])
+//            ->from(['startpage' => 'startpage'])
+//            ->join(['selfbox' => 'boxes_content'], 'startpage.box1 = selfbox.box_id', 'LEFT', ['box1_id' => 'selfbox.box_id', 'box1_content' => 'selfbox.content', 'box1_locale' => 'selfbox.locale', 'box1_title' => 'selfbox.title'])
+//            ->join(['selfbox2' => 'boxes_content'], 'startpage.box2 = selfbox2.box_id', 'LEFT', ['box2_id' => 'selfbox2.box_id', 'box2_content' => 'selfbox2.content', 'box2_locale' => 'selfbox2.locale', 'box2_title' => 'selfbox2.title'])
+//            ->join(['selfbox3' => 'boxes_content'], 'startpage.box3 = selfbox3.box_id', 'LEFT', ['box3_id' => 'selfbox3.box_id', 'box3_content' => 'selfbox3.content', 'box3_locale' => 'selfbox3.locale', 'box3_title' => 'selfbox3.title'])
+//            ->join(['selfbox4' => 'boxes_content'], 'startpage.box4 = selfbox4.box_id', 'LEFT', ['box4_id' => 'selfbox4.box_id', 'box4_content' => 'selfbox4.content', 'box4_locale' => 'selfbox4.locale', 'box4_title' => 'selfbox4.title'])
+////            ->join(['modulebox' => 'modules_boxes_content'], 'startpage.box1 = modulebox.key', 'LEFT', ['box1_key' => 'modulebox.key', 'box1_module' => 'modulebox.module', 'box1_modulelocale' => 'modulebox.locale', 'box1_name' => 'modulebox.name'])
+////            ->join(['modulebox' => 'modules_boxes_content'], 'startpage.box2 = modulebox.key', 'LEFT', ['box2_key' => 'modulebox.key', 'box2_module' => 'modulebox.module', 'box2_modulelocale' => 'modulebox.locale', 'box2_name' => 'modulebox.name'])
+////            ->join(['modulebox' => 'modules_boxes_content'], 'startpage.box3 = modulebox.key', 'LEFT', ['box3_key' => 'modulebox.key', 'box3_module' => 'modulebox.module', 'box3_modulelocale' => 'modulebox.locale', 'box3_name' => 'modulebox.name'])
+////            ->join(['modulebox' => 'modules_boxes_content'], 'startpage.box4 = modulebox.key', 'LEFT', ['box4_key' => 'modulebox.key', 'box4_module' => 'modulebox.module', 'box4_modulelocale' => 'modulebox.locale', 'box4_name' => 'modulebox.name'])
+//            ->where($where)
+//            ->execute()
+//            ->fetchRows();
 
         if (empty($startpageArray)) {
             return [];
         }
 
-        $statpages = [];
+        $startpages = [];
         $boxMapper = new Startpage();
         foreach ($startpageArray as $startpageRow) {
             $startpageModel = new StartpageModel();
@@ -53,20 +66,51 @@ class Startpage extends \Ilch\Mapper
             $startpageModel->setBackgroundGrid($startpageRow['background_grid']);
             $startpageModel->setColorGrid($startpageRow['color_grid']);
             $startpageModel->setFunction($startpageRow['function']);
-
-            $startpage[] = $startpageModel;
+            $startpages[] = $startpageModel;
         }
 
-        return $startpage;
+        return $startpages;
     }
 
     /**
-     * Get box from daterbase by key and name.
+     * Return a slimmed down list of the startpages (id, grid, heading and class).
+     *
+     * @param array $where
+     * @return array|StartpageModel[]
+     */
+    public function getStartPagesList($where = [])
+    {
+        $startpageRows = $this->db()->select(['id', 'grid', 'heading', 'class'])
+            ->from('startpage')
+            ->where($where)
+            ->execute()
+            ->fetchRows();
+
+        if (empty($startpageRows)) {
+            return [];
+        }
+
+        $startpages = [];
+        foreach ($startpageRows as $startpageRow) {
+            $startpageModel = new StartpageModel();
+
+            $startpageModel->setId($startpageRow['id']);
+            $startpageModel->setGrid($startpageRow['grid']);
+            $startpageModel->setHeading($startpageRow['heading']);
+            $startpageModel->setClass($startpageRow['class']);
+            $startpages[] = $startpageModel;
+        }
+
+        return $startpages;
+    }
+
+    /**
+     * Get box from datebase by key and name.
      *
      * @param array $where
      * @return mixed
      */
-    // TODO: Consider using a similar function in the box mapper of the admin module if possible or move this to that mapper.
+    // TODO: Use getBoxByIdLocale in the box mapper of the admin module if possible.
     private function getBoxById($where = [])
     {
         $boxRow = $this->db()->select('*')
