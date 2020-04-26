@@ -314,10 +314,6 @@ $selfBoxes =$this->get('self_boxes');
                             document.getElementById("objektcontent").style.background = sectionBack;
                         }
 
-                        function myFunction()
-                        {
-                        }
-
                         $("#boxShadow").on('shown.bs.modal', function (e) {
                             setSetVal();
                             changeShadow();

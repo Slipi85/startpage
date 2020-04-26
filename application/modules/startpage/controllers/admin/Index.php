@@ -121,13 +121,11 @@ class Index extends \Ilch\Controller\Admin
               ->add($this->getTranslator()->trans('menuStartpage'), ['action' => 'index'])
               ->add($this->getTranslator()->trans('edit'), ['action' => 'treat']);
 
-          $this->getView()->set('startpage', $startpageMapper->getStartpageById($this->getRequest()->getParam('id')));
+          $this->getView()->set('startpage', $startpageMapper->getStartpage($this->getRequest()->getParam('id'), $this->getTranslator()->getLocale()));
       } else {
           $this->getLayout()->getAdminHmenu()
               ->add($this->getTranslator()->trans('menuStartpage'), ['action' => 'index'])
               ->add($this->getTranslator()->trans('add'), ['action' => 'treat']);
-
-          $this->getView()->set('startpages', $startpageMapper->getStartpage());
       }
 
       $this->getView()->set('boxArray', $boxMapper->getBoxList($this->getTranslator()->getLocale()));

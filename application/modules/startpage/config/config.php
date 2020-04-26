@@ -53,7 +53,6 @@ class Config extends \Ilch\Config\Install
                     `boxshadow` VARCHAR(255) NOT NULL,
                     `background_grid` VARCHAR(255) NOT NULL,
                     `color_grid` VARCHAR(255) NOT NULL,
-                    `function` MEDIUMTEXT NOT NULL,
                     PRIMARY KEY (`id`)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1;';
     }

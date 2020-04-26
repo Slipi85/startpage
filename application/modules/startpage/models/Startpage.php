@@ -479,28 +479,4 @@ class Startpage extends \Ilch\Model
 
         return $this;
     }
-
-    /**
-     * Gets the id of the startpage.
-     *
-     * @param int
-     * @return this
-     */
-    public function getFunction()
-    {
-        return $this->function;
-    }
-
-    /**
-     * Sets the id of the startpage.
-     *
-     * @param int $function
-     * @return this
-     */
-    public function setFunction($function)
-    {
-        $this->function = (int)$function;
-
-        return $this;
-    }
 }
