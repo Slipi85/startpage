@@ -56,7 +56,7 @@ class Index extends \Ilch\Controller\Admin
           }
       }
 
-      $this->getView()->set('startpages', $startpageMapper->getStartpage());
+      $this->getView()->set('startpages', $startpageMapper->getStartPagesList());
   }
 
   public function treatAction()
@@ -70,20 +70,11 @@ class Index extends \Ilch\Controller\Admin
           $locale = $this->getTranslator()->getLocale();
       }
 
-
-      if ($this->getRequest()->getParam('id')) {
-          $this->getLayout()->getAdminHmenu()
-                  ->add($this->getTranslator()->trans('menuStartpage'), ['action' => 'index'])
-                  ->add($this->getTranslator()->trans('edit'), ['action' => 'treat']);
-
-          $this->getView()->set('startpage', $startpageMapper->getStartpageById($this->getRequest()->getParam('id')));
-      } else {
-          $this->getLayout()->getAdminHmenu()
-                  ->add($this->getTranslator()->trans('menuStartpage'), ['action' => 'index'])
-                  ->add($this->getTranslator()->trans('add'), ['action' => 'treat']);
-      }
-
       if ($this->getRequest()->isPost()) {
+          Validation::setCustomFieldAliases([
+              'grid' => 'areas',
+          ]);
+
           $validation = Validation::create($this->getRequest()->getPost(), [
             'heading' => 'required',
             'class' => 'required',
@@ -125,10 +116,20 @@ class Index extends \Ilch\Controller\Admin
           }
       }
 
-      $this->getView()->set('startpages', $startpageMapper->getStartpage());
-      $this->getView()->set('boxArray', $boxMapper->getBoxList($this->getTranslator()->getLocale()))
-                      ->set('self_boxes', $boxMapper->getSelfBoxList($locale));
+      if ($this->getRequest()->getParam('id')) {
+          $this->getLayout()->getAdminHmenu()
+              ->add($this->getTranslator()->trans('menuStartpage'), ['action' => 'index'])
+              ->add($this->getTranslator()->trans('edit'), ['action' => 'treat']);
 
+          $this->getView()->set('startpage', $startpageMapper->getStartpage($this->getRequest()->getParam('id'), $this->getTranslator()->getLocale()));
+      } else {
+          $this->getLayout()->getAdminHmenu()
+              ->add($this->getTranslator()->trans('menuStartpage'), ['action' => 'index'])
+              ->add($this->getTranslator()->trans('add'), ['action' => 'treat']);
+      }
+
+      $this->getView()->set('boxArray', $boxMapper->getBoxList($this->getTranslator()->getLocale()));
+      $this->getView()->set('self_boxes', $boxMapper->getSelfBoxList($locale));
   }
 
   public function delStartpageAction()
