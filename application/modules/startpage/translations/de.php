@@ -11,8 +11,8 @@ return [
     'boxChange2' => 'Boxenauswahl2',
     'boxChange3' => 'Boxenauswahl3',
     'boxChange4' => 'Boxenauswahl4',
-    'noSectionIndex' => '<h1>Keine Sektion hinzugefühgt</h1>
-    <p>Gehe in den Admincenter unter Module/Startseite und füge sektionen hinzu.</p>',
+    'noSectionIndex' => '<h1>Keine Sektion hinzugefügt</h1>
+    <p>Gehe in den Admincenter unter Module/Startseite und füge Sektionen hinzu.</p>',
     'pleaseSelect' => 'Bitte wählen Sie',
     'areas' => 'Bereiche',
     'one' => '1 Bereich',

@@ -13,9 +13,9 @@ class Index extends \Ilch\Controller\Frontend
     public function indexAction()
     {
         $startpageMapper = new StartpageMapper();
-        $startpage = $startpageMapper->getStartpages($this->getTranslator()->getLocale());
+        $startpages = $startpageMapper->getStartpages($this->getTranslator()->getLocale());
 
-        $this->getView()->set('startpage', $startpage);
+        $this->getView()->set('startpages', $startpages);
         $this->getView()->set('layout', $this->getLayout());
     }
 }
