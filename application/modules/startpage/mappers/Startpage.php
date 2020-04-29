@@ -22,10 +22,10 @@ class Startpage extends \Ilch\Mapper
     {
         $startpageArray = $this->db()->select(['startpage.id', 'startpage.grid', 'startpage.box1', 'startpage.box2', 'startpage.box3', 'startpage.box4', 'startpage.background_selection', 'startpage.background', 'startpage.image', 'startpage.color', 'startpage.heading', 'startpage.class', 'startpage.boxshadow', 'startpage.background_grid', 'startpage.color_grid'])
             ->from(['startpage' => 'startpage'])
-            ->join(['selfbox1' => 'boxes_content'], 'startpage.box1 = selfbox1.box_id', 'LEFT', ['box1_id' => 'selfbox1.box_id', 'box1_content' => 'selfbox1.content', 'box1_locale' => 'selfbox1.locale', 'box1_title' => 'selfbox1.title'])
-            ->join(['selfbox2' => 'boxes_content'], 'startpage.box2 = selfbox2.box_id', 'LEFT', ['box2_id' => 'selfbox2.box_id', 'box2_content' => 'selfbox2.content', 'box2_locale' => 'selfbox2.locale', 'box2_title' => 'selfbox2.title'])
-            ->join(['selfbox3' => 'boxes_content'], 'startpage.box3 = selfbox3.box_id', 'LEFT', ['box3_id' => 'selfbox3.box_id', 'box3_content' => 'selfbox3.content', 'box3_locale' => 'selfbox3.locale', 'box3_title' => 'selfbox3.title'])
-            ->join(['selfbox4' => 'boxes_content'], 'startpage.box4 = selfbox4.box_id', 'LEFT', ['box4_id' => 'selfbox4.box_id', 'box4_content' => 'selfbox4.content', 'box4_locale' => 'selfbox4.locale', 'box4_title' => 'selfbox4.title'])
+            ->join(['selfbox1' => 'boxes_content'], 'startpage.box1 = selfbox1.box_id', 'LEFT', ['selfbox1_id' => 'selfbox1.box_id', 'selfbox1_content' => 'selfbox1.content', 'selfbox1_locale' => 'selfbox1.locale', 'selfbox1_title' => 'selfbox1.title'])
+            ->join(['selfbox2' => 'boxes_content'], 'startpage.box2 = selfbox2.box_id', 'LEFT', ['selfbox2_id' => 'selfbox2.box_id', 'selfbox2_content' => 'selfbox2.content', 'selfbox2_locale' => 'selfbox2.locale', 'selfbox2_title' => 'selfbox2.title'])
+            ->join(['selfbox3' => 'boxes_content'], 'startpage.box3 = selfbox3.box_id', 'LEFT', ['selfbox3_id' => 'selfbox3.box_id', 'selfbox3_content' => 'selfbox3.content', 'selfbox3_locale' => 'selfbox3.locale', 'selfbox3_title' => 'selfbox3.title'])
+            ->join(['selfbox4' => 'boxes_content'], 'startpage.box4 = selfbox4.box_id', 'LEFT', ['selfbox4_id' => 'selfbox4.box_id', 'selfbox4_content' => 'selfbox4.content', 'selfbox4_locale' => 'selfbox4.locale', 'selfbox4_title' => 'selfbox4.title'])
             ->join(['modulebox1' => 'modules_boxes_content'], 'startpage.box1 = modulebox1.key', 'LEFT', ['modulebox1_key' => 'modulebox1.key', 'modulebox1_module' => 'modulebox1.module', 'modulebox1_locale' => 'modulebox1.locale', 'modulebox1_name' => 'modulebox1.name'])
             ->join(['modulebox2' => 'modules_boxes_content'], 'startpage.box2 = modulebox2.key', 'LEFT', ['modulebox2_key' => 'modulebox2.key', 'modulebox2_module' => 'modulebox2.module', 'modulebox2_locale' => 'modulebox2.locale', 'modulebox2_name' => 'modulebox2.name'])
             ->join(['modulebox3' => 'modules_boxes_content'], 'startpage.box3 = modulebox3.key', 'LEFT', ['modulebox3_key' => 'modulebox3.key', 'modulebox3_module' => 'modulebox3.module', 'modulebox3_locale' => 'modulebox3.locale', 'modulebox3_name' => 'modulebox3.name'])
@@ -44,61 +44,61 @@ class Startpage extends \Ilch\Mapper
             $startpageModel->setId($startpageRow['id']);
             $startpageModel->setGrid($startpageRow['grid']);
 
-            $moduleBoxModel = new BoxModel();
-            if (!empty($startpageRow['modulebox1.key'])) {
-                $moduleBoxModel->setKey($startpageRow['modulebox1.key']);
-                $moduleBoxModel->setModule($startpageRow['modulebox1.module']);
-                $moduleBoxModel->setLocale($startpageRow['modulebox1.locale']);
-                $moduleBoxModel->setName($startpageRow['modulebox1.name']);
+            $boxModel = new BoxModel();
+            if (!empty($startpageRow['modulebox1_key'])) {
+                $boxModel->setKey($startpageRow['modulebox1_key']);
+                $boxModel->setModule($startpageRow['modulebox1_module']);
+                $boxModel->setLocale($startpageRow['modulebox1_locale']);
+                $boxModel->setName($startpageRow['modulebox1_name']);
             } else {
-                $moduleBoxModel->setId($startpageRow['selfbox1.id']);
-                $moduleBoxModel->setModule($startpageRow['selfbox1.module']);
-                $moduleBoxModel->setLocale($startpageRow['selfbox1.locale']);
-                $moduleBoxModel->setName($startpageRow['selfbox1.name']);
+                $boxModel->setId($startpageRow['selfbox1_id']);
+                $boxModel->setModule($startpageRow['selfbox1_module']);
+                $boxModel->setLocale($startpageRow['selfbox1_locale']);
+                $boxModel->setName($startpageRow['selfbox1_name']);
             }
-            $startpageModel->setBox1($moduleBoxModel);
+            $startpageModel->setBox1($boxModel);
 
-            $moduleBoxModel = new BoxModel();
-            if (!empty($startpageRow['modulebox2.key'])) {
-                $moduleBoxModel->setKey($startpageRow['modulebox2.key']);
-                $moduleBoxModel->setModule($startpageRow['modulebox2.module']);
-                $moduleBoxModel->setLocale($startpageRow['modulebox2.locale']);
-                $moduleBoxModel->setName($startpageRow['modulebox2.name']);
+            $boxModel = new BoxModel();
+            if (!empty($startpageRow['modulebox2_key'])) {
+                $boxModel->setKey($startpageRow['modulebox2_key']);
+                $boxModel->setModule($startpageRow['modulebox2_module']);
+                $boxModel->setLocale($startpageRow['modulebox2_locale']);
+                $boxModel->setName($startpageRow['modulebox2_name']);
             } else {
-                $moduleBoxModel->setId($startpageRow['selfbox2.id']);
-                $moduleBoxModel->setModule($startpageRow['selfbox2.module']);
-                $moduleBoxModel->setLocale($startpageRow['selfbox2.locale']);
-                $moduleBoxModel->setName($startpageRow['selfbox2.name']);
+                $boxModel->setId($startpageRow['selfbox2_id']);
+                $boxModel->setModule($startpageRow['selfbox2_module']);
+                $boxModel->setLocale($startpageRow['selfbox2_locale']);
+                $boxModel->setName($startpageRow['selfbox2_name']);
             }
-            $startpageModel->setBox2($moduleBoxModel);
+            $startpageModel->setBox2($boxModel);
 
-            $moduleBoxModel = new BoxModel();
-            if (!empty($startpageRow['modulebox3.key'])) {
-                $moduleBoxModel->setKey($startpageRow['modulebox3.key']);
-                $moduleBoxModel->setModule($startpageRow['modulebox3.module']);
-                $moduleBoxModel->setLocale($startpageRow['modulebox3.locale']);
-                $moduleBoxModel->setName($startpageRow['modulebox3.name']);
+            $boxModel = new BoxModel();
+            if (!empty($startpageRow['modulebox3_key'])) {
+                $boxModel->setKey($startpageRow['modulebox3_key']);
+                $boxModel->setModule($startpageRow['modulebox3_module']);
+                $boxModel->setLocale($startpageRow['modulebox3_locale']);
+                $boxModel->setName($startpageRow['modulebox3_name']);
             } else {
-                $moduleBoxModel->setId($startpageRow['selfbox3.id']);
-                $moduleBoxModel->setModule($startpageRow['selfbox3.module']);
-                $moduleBoxModel->setLocale($startpageRow['selfbox3.locale']);
-                $moduleBoxModel->setName($startpageRow['selfbox3.name']);
+                $boxModel->setId($startpageRow['selfbox3_id']);
+                $boxModel->setModule($startpageRow['selfbox3_module']);
+                $boxModel->setLocale($startpageRow['selfbox3_locale']);
+                $boxModel->setName($startpageRow['selfbox3_name']);
             }
-            $startpageModel->setBox3($moduleBoxModel);
+            $startpageModel->setBox3($boxModel);
 
-            $moduleBoxModel = new BoxModel();
-            if (!empty($startpageRow['modulebox4.key'])) {
-                $moduleBoxModel->setKey($startpageRow['modulebox4.key']);
-                $moduleBoxModel->setModule($startpageRow['modulebox4.module']);
-                $moduleBoxModel->setLocale($startpageRow['modulebox4.locale']);
-                $moduleBoxModel->setName($startpageRow['modulebox4.name']);
+            $boxModel = new BoxModel();
+            if (!empty($startpageRow['modulebox4_key'])) {
+                $boxModel->setKey($startpageRow['modulebox4_key']);
+                $boxModel->setModule($startpageRow['modulebox4_module']);
+                $boxModel->setLocale($startpageRow['modulebox4_locale']);
+                $boxModel->setName($startpageRow['modulebox4_name']);
             } else {
-                $moduleBoxModel->setId($startpageRow['selfbox4.id']);
-                $moduleBoxModel->setModule($startpageRow['selfbox4.module']);
-                $moduleBoxModel->setLocale($startpageRow['selfbox4.locale']);
-                $moduleBoxModel->setName($startpageRow['selfbox4.name']);
+                $boxModel->setId($startpageRow['selfbox4_id']);
+                $boxModel->setModule($startpageRow['selfbox4_module']);
+                $boxModel->setLocale($startpageRow['selfbox4_locale']);
+                $boxModel->setName($startpageRow['selfbox4_name']);
             }
-            $startpageModel->setBox4($moduleBoxModel);
+            $startpageModel->setBox4($boxModel);
 
             $startpageModel->setBackgroundSelection($startpageRow['background_selection']);
             $startpageModel->setBackground($startpageRow['background']);
