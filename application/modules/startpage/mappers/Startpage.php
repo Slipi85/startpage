@@ -39,7 +39,6 @@ class Startpage extends \Ilch\Mapper
             ->execute()
             ->fetchRows();
 
-        file_put_contents('php://stderr', print_r($startpageArray, TRUE));
         if (empty($startpageArray)) {
             return [];
         }

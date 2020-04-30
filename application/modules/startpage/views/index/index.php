@@ -12,41 +12,36 @@ $layout = $this->get('layout');
                     <h1><?= $this->escape($startpage->getHeading()) ?></h1>
                 </div>
                 <?php
+                $boxObjects = [];
                 switch($startpage->getGrid()) {
                     case '4':
-                        $boxObj4 = $startpage->getBox4();
-                        $boxObj3 = $startpage->getBox3();
-                        $boxObj2 = $startpage->getBox2();
-                        $boxObj1 = $startpage->getBox1();
+                        $boxObjects = [$startpage->getBox1(), $startpage->getBox2(), $startpage->getBox3(), $startpage->getBox4()];
                         $grid = 'col-lg-3';
-                        $content = '<div class="stretch"><div class="' . $grid . ' start-content">' . $layout->getBox($boxObj1->getModule(), $boxObj1->getKey()) . '</div>
-                                    <div class="' . $grid . ' start-content">' . $layout->getBox($boxObj2->getModule(), $boxObj2->getKey()) . '</div>
-                                    <div class="' . $grid . ' start-content">' . $layout->getBox($boxObj3->getModule(), $boxObj3->getKey()) . '</div>
-                                    <div class="' . $grid . ' start-content">' . $layout->getBox($boxObj4->getModule(), $boxObj4->getKey()) . '</div></div>';
                         break;
                     case '3':
-                        $boxObj3 = $startpage->getBox3();
-                        $boxObj2 = $startpage->getBox2();
-                        $boxObj1 = $startpage->getBox1();
+                        $boxObjects = [$startpage->getBox1(), $startpage->getBox2(), $startpage->getBox3()];
                         $grid = 'col-lg-4';
-                        $content = '<div class="stretch"><div class="' . $grid . ' start-content">' . $layout->getBox($boxObj1->getModule(), $boxObj1->getKey()) . '</div>
-                                    <div class="' . $grid . ' start-content">' . $layout->getBox($boxObj2->getModule(), $boxObj2->getKey()) . '</div>
-                                    <div class="' . $grid . ' start-content">' . $layout->getBox($boxObj3->getModule(), $boxObj3->getKey()) . '</div></div>';
                         break;
                     case '2':
-                        $boxObj2 = $startpage->getBox2();
-                        $boxObj1 = $startpage->getBox1();
+                        $boxObjects = [$startpage->getBox1(), $startpage->getBox2()];
                         $grid = 'col-lg-6';
-                        $content = '<div class="stretch"><div class="' . $grid . ' start-content">' . $layout->getBox($boxObj1->getModule(), $boxObj1->getKey()) . '</div>
-                                    <div class="' . $grid . ' start-content">' . $layout->getBox($boxObj2->getModule(), $boxObj2->getKey()) . '</div></div>';
                         break;
                     case '1':
-                        $boxObj1 = $startpage->getBox1();
+                        $boxObjects[] = $startpage->getBox1();
                         $grid = 'col-lg-12';
-                        $content = '<div class="stretch"><div class="' . $grid . ' start-content">' . $layout->getBox($boxObj1->getModule(), $boxObj1->getKey()) . '</div></div>';
                         break;
                     default:
                 }
+
+                $content = '<div class="stretch">';
+                foreach($boxObjects as $boxObject) {
+                    if ($boxObject->getKey()) {
+                        $content .= '<div class="' . $grid . ' start-content">' . $layout->getBox($boxObject->getModule(), $boxObject->getKey()) . '</div>';
+                    } else {
+                        $content .= '<div class="' . $grid . ' start-content">' . $layout->purify($boxObject->getContent()) . '</div>';
+                    }
+                }
+                $content .= '</div>';
 
                 echo $content;
                 ?>
